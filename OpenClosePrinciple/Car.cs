@@ -15,7 +15,13 @@ namespace OpenClosePrinciple
       year = theYear;
       engine = anEngine;
     }
-    
+
+    public Car(Car otherCar)
+    {
+      year = otherCar.year;
+      engine = new Engine(otherCar.engine);
+    }
+
     public override string ToString()
     {
       return "Car: " + year + " class " + engine.ToString();

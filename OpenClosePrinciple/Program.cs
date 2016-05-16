@@ -13,6 +13,9 @@ namespace OpenClosePrinciple
       Car car1 = new Car(2015, new Engine());
       Console.WriteLine(car1.ToString());
 
+      Car car2 = new Car(car1);
+      Console.WriteLine(car2.ToString());
+
       Console.ReadKey();
     }
   }

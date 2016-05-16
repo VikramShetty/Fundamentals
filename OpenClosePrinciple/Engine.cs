@@ -11,10 +11,14 @@ namespace OpenClosePrinciple
     public Engine()
     {
     }
-    
+
+    public Engine(Engine otherEngine)
+    {
+    }
+
     public override string ToString()
     {
-      return this.GetType().Name;
+      return this.GetType().Name + ":" + this.GetHashCode().ToString();
     }
   }
 }
