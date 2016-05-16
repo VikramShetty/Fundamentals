@@ -19,7 +19,10 @@ namespace OpenClosePrinciple
     public Car(Car otherCar)
     {
       year = otherCar.year;
-      engine = new Engine(otherCar.engine);
+      if (typeof(TurboEngine) == otherCar.engine.GetType())
+        engine = new TurboEngine(otherCar.engine);
+      else
+        engine = new Engine(otherCar.engine);
     }
 
     public override string ToString()
