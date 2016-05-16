@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForIteration", "ForIteratio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnderstandingArrays", "UnderstandingArrays\UnderstandingArrays.csproj", "{3C584740-207F-487F-8371-29B785CAE27F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenClosePrinciple", "OpenClosePrinciple\OpenClosePrinciple.csproj", "{48532BEC-D9CC-4070-96B8-EF0928B51924}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,8 +49,15 @@ Global
 		{3C584740-207F-487F-8371-29B785CAE27F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C584740-207F-487F-8371-29B785CAE27F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C584740-207F-487F-8371-29B785CAE27F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48532BEC-D9CC-4070-96B8-EF0928B51924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48532BEC-D9CC-4070-96B8-EF0928B51924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48532BEC-D9CC-4070-96B8-EF0928B51924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48532BEC-D9CC-4070-96B8-EF0928B51924}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48532BEC-D9CC-4070-96B8-EF0928B51924} = {1DEEE5CC-4864-4C8B-BC04-2D60DAD990A4}
 	EndGlobalSection
 EndGlobal
