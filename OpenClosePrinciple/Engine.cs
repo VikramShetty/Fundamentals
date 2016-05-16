@@ -20,5 +20,10 @@ namespace OpenClosePrinciple
     {
       return this.GetType().Name + ":" + this.GetHashCode().ToString();
     }
+
+    public virtual Engine makeCopy()
+    {
+      return new Engine(this);
+    }
   }
 }

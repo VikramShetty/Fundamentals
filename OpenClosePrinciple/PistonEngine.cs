@@ -16,5 +16,10 @@ namespace OpenClosePrinciple
       : base(otherEngine)
     {
     }
+
+    public override Engine makeCopy()
+    {
+      return new PistonEngine(this);
+    }
   }
 }
