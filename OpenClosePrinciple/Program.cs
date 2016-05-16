@@ -10,7 +10,7 @@ namespace OpenClosePrinciple
   {
     static void Main(string[] args)
     {
-      Car car1 = new Car(2015, new TurboEngine());
+      Car car1 = new Car(2015, new PistonEngine());
       Console.WriteLine(car1.ToString());
 
       Car car2 = new Car(car1);
