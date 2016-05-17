@@ -46,6 +46,7 @@
     <Compile Include="PistonEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuperefficientEngine.cs" />
     <Compile Include="TurboEngine.cs" />
   </ItemGroup>
   <ItemGroup>
