@@ -10,10 +10,10 @@ namespace OpenClosePrinciple
   {
     static void Main(string[] args)
     {
-      Car car1 = new Car(2015, new PistonEngine());
+      Car car1 = new Car(2015, new TurboEngine());
       Console.WriteLine(car1.ToString());
 
-      Car car2 = new Car(car1);
+      Car car2 = car1.makeCopy();
       Console.WriteLine(car2.ToString());
 
       Console.ReadKey();

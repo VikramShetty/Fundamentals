@@ -16,10 +16,15 @@ namespace OpenClosePrinciple
       engine = anEngine;
     }
 
-    public Car(Car otherCar)
+    protected Car(Car otherCar)
     {
       year = otherCar.year;
       engine = otherCar.engine.makeCopy();    
+    }
+
+    public Car makeCopy()
+    {
+      return new Car(this);
     }
 
     public override string ToString()
