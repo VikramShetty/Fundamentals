@@ -12,7 +12,7 @@ namespace OpenClosePrinciple
     {
     }
 
-    public PistonEngine(Engine otherEngine)
+    protected PistonEngine(Engine otherEngine)
       : base(otherEngine)
     {
     }

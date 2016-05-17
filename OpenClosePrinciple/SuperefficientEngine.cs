@@ -12,7 +12,7 @@ namespace OpenClosePrinciple
     {
     }
 
-    public SuperefficientEngine(Engine otherEngine)
+    protected SuperefficientEngine(Engine otherEngine)
       : base(otherEngine)
     {
     }

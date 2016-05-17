@@ -12,7 +12,7 @@ namespace OpenClosePrinciple
     {
     }
 
-    public TurboEngine(Engine otherEngine)
+    protected TurboEngine(Engine otherEngine)
       : base(otherEngine)
     {
     }

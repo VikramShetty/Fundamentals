@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace OpenClosePrinciple
 {
-  public class Engine
+  public abstract class Engine
   {
     public Engine()
     {
     }
 
-    public Engine(Engine otherEngine)
+    protected Engine(Engine otherEngine)
     {
     }
 
@@ -21,9 +21,7 @@ namespace OpenClosePrinciple
       return this.GetType().Name + ":" + this.GetHashCode().ToString();
     }
 
-    public virtual Engine makeCopy()
-    {
-      return new Engine(this);
-    }
+    public abstract Engine makeCopy();
+
   }
 }
