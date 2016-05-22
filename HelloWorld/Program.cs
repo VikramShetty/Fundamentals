@@ -12,6 +12,8 @@ namespace HelloWorld
     {
       Console.WriteLine("Hello World");
       Console.ReadLine();
+
+      Program p = new Program();
     }
   }
 }
