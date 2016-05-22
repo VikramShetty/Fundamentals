@@ -4,16 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelloWorld
+namespace UnderstandingClasses
 {
   class Program
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World");
-      Console.ReadLine();
-
-      UnderstandingClasses.DanceStyle d = new UnderstandingClasses.DanceStyle();
     }
   }
 }
