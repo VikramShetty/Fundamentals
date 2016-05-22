@@ -13,10 +13,10 @@ namespace OperatorsExpressionsStatements
       // Expression made up of Operators and Operands
       // Statements made up of multiple expressions
 
-      //Variable declaration
+      // Variable declaration
       int x, y, a, b;
 
-      //Assignment operator
+      // Assignment operator
       x = 3;
       y = 2;
       a = 1;

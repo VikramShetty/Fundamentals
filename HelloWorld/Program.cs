@@ -13,6 +13,7 @@ namespace HelloWorld
       Console.WriteLine("Hello World");
       Console.ReadLine();
 
+      Program p = new Program();
       UnderstandingClasses.DanceStyle d = new UnderstandingClasses.DanceStyle();
     }
   }

@@ -17,9 +17,9 @@ namespace Decisions
 
       string message = "";
 
-      //Try the below styel of using constant 
-      //before varible because that will avoid 
-      //single equal error while comparing.
+      // Try the below styel of using constant 
+      // before varible because that will avoid 
+      // single equal error while comparing.
       if ("1" == userValue)
         message = "You won a new car!";
       else if ("2" == userValue)
@@ -29,8 +29,8 @@ namespace Decisions
       else
         message = "Sorry, we didn't understand.";
      
-      //Do not repeat your code block atleast in your method.
-      //If the if condition has only one line. Remove the curly braces
+      // Do not repeat your code block atleast in your method.
+      // If the if condition has only one line. Remove the curly braces
 
       Console.WriteLine(message);
       Console.ReadLine();
@@ -42,14 +42,14 @@ namespace Decisions
 
       message = ("1" == userValue) ? "boat" : "strand of lint";
 
-      //Console.Write("You won a ");
-      //Console.Write(message);
-      //Console.Write(".");
+      // Console.Write("You won a ");
+      // Console.Write(message);
+      // Console.Write(".");
 
-      //CLEAN UP
-      //Console.WriteLine("You won a {0}.",message);
+      // CLEAN UP
+      // Console.WriteLine("You won a {0}.",message);
 
-      //Replace 2 value
+      // Replace 2 value
       Console.WriteLine("You entered: {0}, therefore you won a {1}."
         , userValue, message);
       Console.ReadLine();
