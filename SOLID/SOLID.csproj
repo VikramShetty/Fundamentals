@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileStore.cs" />
     <Compile Include="MessageStore.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Maybe.cs" />

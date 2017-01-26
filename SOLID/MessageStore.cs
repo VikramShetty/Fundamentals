@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.IO;
 
 namespace SOLID
@@ -8,6 +7,7 @@ namespace SOLID
   {
     private readonly StoreCache cache;
     private readonly StoreLogger log;
+    private readonly FileStore fileStore;
     public MessageStore(DirectoryInfo workingDirectory)
     {
       if (workingDirectory == null)
@@ -19,6 +19,7 @@ namespace SOLID
       this.WorkingDirectory = workingDirectory;
       this.cache = new StoreCache();
       this.log = new StoreLogger();
+      this.fileStore = new FileStore();
     }
 
     public DirectoryInfo WorkingDirectory { get; private set; }
@@ -27,7 +28,7 @@ namespace SOLID
     {
       this.log.Saving(id);
       var file = GetFileInfo(id); //ok to query from command
-      File.WriteAllText(file.FullName, message);
+      this.fileStore.WriteAllText(file.FullName, message);
       this.cache.AddOrUpdate(id, message);
       this.log.Saved(id);
     }
@@ -42,7 +43,7 @@ namespace SOLID
         return new Maybe<string>();
       }
       var message = this.cache.GetOrAdd(id, _ =>
-        File.ReadAllText(file.FullName));
+        this.fileStore.ReadAllText(file.FullName));
 
       this.log.Returning(id);
       return new Maybe<string>(message);
@@ -50,7 +51,7 @@ namespace SOLID
 
     public FileInfo GetFileInfo(int id)
     {
-      return new FileInfo(Path.Combine(this.WorkingDirectory.FullName, id + ".txt"));
+      return this.fileStore.GetFileInfo(id, this.WorkingDirectory.FullName);
     }
   }
 }
