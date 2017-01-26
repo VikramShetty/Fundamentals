@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SOLID;
 
@@ -10,20 +11,16 @@ namespace FundamentalsTests
     [TestMethod]
     public void WhenRead_With49_ReturnsEmptyString()
     {
-      FileStore fs = new FileStore();
-      fs.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-      fs.Save(49, "some");
-      Assert.AreEqual("some", fs.Read(49));
+      FileStore fs = new FileStore(AppDomain.CurrentDomain.BaseDirectory);
+      fs.Save(49, "");
+      Assert.AreEqual("", fs.Read(49).DefaultIfEmpty("").Single());
     }
 
     [TestMethod]
-    [ExpectedException(typeof(ArgumentNullException))]
-    public void WhenRead_With49_NoWorkingDirectory_ReturnsEmptyString()
+    public void WhenRead_With49_NoWorkingDirectory_NotPossible()
     {
-      FileStore fs = new FileStore();
-      fs.Save(49, "");
-      fs.Read(49);
-      Assert.AreEqual("", "");
+      //Because you cannot create a BetterFileStore class without passing a base path
+      Assert.IsTrue(true);
     }
   }
 }
