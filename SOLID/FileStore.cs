@@ -7,6 +7,7 @@ namespace SOLID
   public class FileStore
   {
     private readonly ConcurrentDictionary<int, string> cache;
+    private readonly StoreLogger log;
     public FileStore(DirectoryInfo workingDirectory)
     {
       if (workingDirectory == null)
@@ -16,34 +17,34 @@ namespace SOLID
           , "workingDirectory");
 
       this.WorkingDirectory = workingDirectory;
-
-      cache = new ConcurrentDictionary<int, string>();
+      this.cache = new ConcurrentDictionary<int, string>();
+      this.log = new StoreLogger();
     }
 
     public DirectoryInfo WorkingDirectory { get; private set; }
 
     public void Save(int id, string message)
     {
-      Log.Information("Saving Message {id}", id);
+      this.log.Saving(id);
       var file = GetFileInfo(id); //ok to query from command
       File.WriteAllText(file.FullName, message);
       this.cache.AddOrUpdate(id, message, (i, s) => message);
-      Log.Information("Saved Message {id}", id);
+      this.log.Saved(id);
     }
 
     public Maybe<string> Read(int id)
     {
-      Log.Debug("Reading Message {id}", id);
+      this.log.Reading(id);
       var file = GetFileInfo(id);
       if (!file.Exists)
       {
-        Log.Debug("No Message {id} found", id);
+        this.log.DidNotFind(id);
         return new Maybe<string>();
       }
       var message = this.cache.GetOrAdd(id, _ =>
         File.ReadAllText(file.FullName));
 
-      Log.Debug("Reading Message {id}", id);
+      this.log.Returning(id);
       return new Maybe<string>(message);
     }
 
