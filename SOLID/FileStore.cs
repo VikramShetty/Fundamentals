@@ -11,19 +11,22 @@ namespace SOLID
   {
     public string WorkingDirectory { get; set; }
 
-    public string Save(int id, string message)
+    public void Save(int id, string message)
     {
-      var path = Path.Combine(this.WorkingDirectory, id + ".txt");
+      var path = GetFileName(id); //ok to query from command
       File.WriteAllText(path, message);
-      return path;
     }
 
-    public event EventHandler<MessageEventArgs> MessageRead;
-    public void Read(int id)
+    public string Read(int id)
     {
-      var path = Path.Combine(this.WorkingDirectory, id + ".txt");
+      var path = GetFileName(id);
       var msg = File.ReadAllText(path);
-      this.MessageRead(this, new MessageEventArgs { Message = msg });
+      return msg;
+    }
+
+    public string GetFileName(int id)
+    {
+      return Path.Combine(this.WorkingDirectory, id + ".txt");
     }
   }
 }

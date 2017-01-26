@@ -7,21 +7,13 @@ namespace FundamentalsTests
   [TestClass]
   public class FileStoreTest
   {
-    private string message = "";
     [TestMethod]
     public void WhenRead_With49_ReturnsEmptyString()
     {
       FileStore fs = new FileStore();
       fs.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
       fs.Save(49, "some");
-      fs.MessageRead += new EventHandler<MessageEventArgs>(messageEvent);
-      fs.Read(49);
-      Assert.AreEqual("some", message);
-    }
-
-    void messageEvent(object sender, MessageEventArgs e)
-    {
-      this.message = e.Message;
+      Assert.AreEqual("some", fs.Read(49));
     }
 
     [TestMethod]
