@@ -21,37 +21,52 @@ namespace SOLID
       this.log = new StoreLogger();
       this.fileStore = new FileStore();
     }
-
+    
     public DirectoryInfo WorkingDirectory { get; private set; }
 
     public void Save(int id, string message)
     {
-      this.log.Saving(id);
+      this.Log.Saving(id);
       var file = GetFileInfo(id); //ok to query from command
-      this.fileStore.WriteAllText(file.FullName, message);
-      this.cache.AddOrUpdate(id, message);
-      this.log.Saved(id);
+      this.Store.WriteAllText(file.FullName, message);
+      this.Cache.AddOrUpdate(id, message);
+      this.Log.Saved(id);
     }
 
     public Maybe<string> Read(int id)
     {
-      this.log.Reading(id);
+      this.Log.Reading(id);
       var file = GetFileInfo(id);
       if (!file.Exists)
       {
-        this.log.DidNotFind(id);
+        this.Log.DidNotFind(id);
         return new Maybe<string>();
       }
-      var message = this.cache.GetOrAdd(id, _ =>
-        this.fileStore.ReadAllText(file.FullName));
+      var message = this.Cache.GetOrAdd(id, _ =>
+        this.Store.ReadAllText(file.FullName));
 
-      this.log.Returning(id);
+      this.Log.Returning(id);
       return new Maybe<string>(message);
     }
 
     public FileInfo GetFileInfo(int id)
     {
       return this.fileStore.GetFileInfo(id, this.WorkingDirectory.FullName);
+    }
+
+    public virtual FileStore Store
+    {
+      get { return this.fileStore; }
+    }
+
+    public virtual StoreCache Cache
+    {
+      get { return this.cache; }
+    }
+
+    public virtual StoreLogger Log
+    {
+      get { return this.log; }
     }
   }
 }

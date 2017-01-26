@@ -24,5 +24,14 @@ namespace FundamentalsTests
       //Because you cannot create a BetterFileStore class without passing a base path
       Assert.IsTrue(true);
     }
+
+    [TestMethod]
+    public void OCP_ReplaceLog_WithLog4Net()
+    {
+      var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+      var fs = new MessageStoreLog4Net(d);
+      fs.Save(49, "Extra text");
+      Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());
+    }
   }
 }

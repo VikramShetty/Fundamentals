@@ -10,12 +10,12 @@ namespace SOLID
   {
     internal static void Information(string p, int id)
     {
-
+      Console.Write("Log Information : " + id + " " + p + Environment.NewLine);
     }
 
     internal static void Debug(string p, int id)
     {
-
+      Console.Write("Log Debug : " + id + " " + p + Environment.NewLine);
     }
   }
 }
