@@ -6,7 +6,7 @@ namespace SOLID
 {
   public class FileStore
   {
-    private readonly ConcurrentDictionary<int, string> cache;
+    private readonly StoreCache cache;
     private readonly StoreLogger log;
     public FileStore(DirectoryInfo workingDirectory)
     {
@@ -17,7 +17,7 @@ namespace SOLID
           , "workingDirectory");
 
       this.WorkingDirectory = workingDirectory;
-      this.cache = new ConcurrentDictionary<int, string>();
+      this.cache = new StoreCache();
       this.log = new StoreLogger();
     }
 
@@ -28,7 +28,7 @@ namespace SOLID
       this.log.Saving(id);
       var file = GetFileInfo(id); //ok to query from command
       File.WriteAllText(file.FullName, message);
-      this.cache.AddOrUpdate(id, message, (i, s) => message);
+      this.cache.AddOrUpdate(id, message);
       this.log.Saved(id);
     }
 

@@ -46,6 +46,7 @@
     <Compile Include="Maybe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreCache.cs" />
     <Compile Include="StoreLogger.cs" />
   </ItemGroup>
   <ItemGroup>
