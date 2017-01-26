@@ -1,7 +1,8 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SOLID;
+using System;
+using System.IO;
+using System.Linq;
 
 namespace FundamentalsTests
 {
@@ -11,9 +12,10 @@ namespace FundamentalsTests
     [TestMethod]
     public void WhenRead_With49_ReturnsEmptyString()
     {
-      FileStore fs = new FileStore(AppDomain.CurrentDomain.BaseDirectory);
-      fs.Save(49, "");
-      Assert.AreEqual("", fs.Read(49).DefaultIfEmpty("").Single());
+      DirectoryInfo d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+      FileStore fs = new FileStore(d);
+      fs.Save(49, "Extra text");
+      Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());
     }
 
     [TestMethod]
