@@ -7,13 +7,13 @@ using System.Linq;
 namespace FundamentalsTests
 {
   [TestClass]
-  public class FileStoreTest
+  public class MessageStoreTest
   {
     [TestMethod]
     public void WhenRead_With49_ReturnsEmptyString()
     {
-      DirectoryInfo d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-      FileStore fs = new FileStore(d);
+      var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+      var fs = new MessageStore(d);
       fs.Save(49, "Extra text");
       Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());
     }

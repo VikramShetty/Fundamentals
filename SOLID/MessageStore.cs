@@ -4,11 +4,11 @@ using System.IO;
 
 namespace SOLID
 {
-  public class FileStore
+  public class MessageStore
   {
     private readonly StoreCache cache;
     private readonly StoreLogger log;
-    public FileStore(DirectoryInfo workingDirectory)
+    public MessageStore(DirectoryInfo workingDirectory)
     {
       if (workingDirectory == null)
         throw new ArgumentNullException("workingDirectory");
