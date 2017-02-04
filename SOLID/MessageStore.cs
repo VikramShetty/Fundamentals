@@ -19,7 +19,7 @@ namespace SOLID
       this.WorkingDirectory = workingDirectory;
       this.cache = new StoreCache();
       this.log = new StoreLogger();
-      this.store = new FileStore();
+      this.store = new SqlStore();
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }

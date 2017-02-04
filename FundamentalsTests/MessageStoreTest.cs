@@ -33,5 +33,13 @@ namespace FundamentalsTests
       fs.Save(49, "Extra text");
       Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());
     }
+    
+    [TestMethod]
+    public void WorkingSqlStore()
+    {
+      var sql = new SqlStore();
+      sql.WriteAllText("49", "Extra text");
+      Assert.AreEqual("Extra text", sql.ReadAllText("49"));
+    }
   }
 }
