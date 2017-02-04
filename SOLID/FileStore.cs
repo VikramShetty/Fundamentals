@@ -2,7 +2,7 @@
 
 namespace SOLID
 {
-  public class FileStore
+  public class FileStore : IStore
   {
     public virtual void WriteAllText(string path, string message)
     {

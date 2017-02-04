@@ -7,7 +7,7 @@ namespace SOLID
   {
     private readonly StoreCache cache;
     private readonly StoreLogger log;
-    private readonly FileStore fileStore;
+    private readonly IStore store;
     public MessageStore(DirectoryInfo workingDirectory)
     {
       if (workingDirectory == null)
@@ -19,7 +19,7 @@ namespace SOLID
       this.WorkingDirectory = workingDirectory;
       this.cache = new StoreCache();
       this.log = new StoreLogger();
-      this.fileStore = new FileStore();
+      this.store = new FileStore();
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }
@@ -51,12 +51,12 @@ namespace SOLID
 
     public FileInfo GetFileInfo(int id)
     {
-      return this.fileStore.GetFileInfo(id, this.WorkingDirectory.FullName);
+      return this.store.GetFileInfo(id, this.WorkingDirectory.FullName);
     }
 
-    public virtual FileStore Store
+    public virtual IStore Store
     {
-      get { return this.fileStore; }
+      get { return this.store; }
     }
 
     public virtual StoreCache Cache

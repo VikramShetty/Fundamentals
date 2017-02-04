@@ -1,7 +1,6 @@
 using System.IO;
-using SOLID;
 
-namespace FundamentalsTests
+namespace SOLID
 {
   public class MessageStoreLog4Net : MessageStore
   {
