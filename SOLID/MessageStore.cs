@@ -19,7 +19,7 @@ namespace SOLID
       this.WorkingDirectory = workingDirectory;
       this.cache = new StoreCache();
       this.log = new StoreLogger();
-      this.store = new SqlStore();
+      this.store = new FileStore(workingDirectory);
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }
@@ -51,7 +51,7 @@ namespace SOLID
 
     public FileInfo GetFileInfo(int id)
     {
-      return this.store.GetFileInfo(id, this.WorkingDirectory.FullName);
+      return this.store.GetFileInfo(id);
     }
 
     public virtual IStore Store

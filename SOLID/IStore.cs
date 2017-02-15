@@ -8,6 +8,6 @@ namespace SOLID
 
     string ReadAllText(string path);
 
-    FileInfo GetFileInfo(int id, string workingDirectory);
+    FileInfo GetFileInfo(int id);
   }
 }

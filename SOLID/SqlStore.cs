@@ -31,7 +31,7 @@ namespace SOLID
       return val;
     }
 
-    public System.IO.FileInfo GetFileInfo(int id, string workingDirectory)
+    public System.IO.FileInfo GetFileInfo(int id)
     {
       throw new NotSupportedException();
     }
