@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="FileStore.cs" />
     <Compile Include="IStore.cs" />
+    <Compile Include="IStoreCache.cs" />
     <Compile Include="Log4Net.cs" />
     <Compile Include="MessageStore.cs" />
     <Compile Include="Log.cs" />

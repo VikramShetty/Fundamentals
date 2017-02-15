@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 
 namespace SOLID
 {
-  public class StoreCache
+  public class StoreCache : IStoreCache
   {
     private readonly ConcurrentDictionary<int, Maybe<string>> cache;
 
