@@ -2,10 +2,8 @@
 
 namespace SOLID
 {
-  public interface IStore
+  public interface IStore : IStoreWriter
   {
-    void Save(int id, string message);
-
     Maybe<string> ReadAllText(int id);
 
     FileInfo GetFileInfo(int id);
