@@ -27,10 +27,10 @@ namespace SOLID
 
     public void Save(int id, string message)
     {
-      this.Log.Saving(id);
+      this.Log.Saving(id, message);
       this.Store.WriteAllText(id, message);
       this.Cache.AddOrUpdate(id, message);
-      this.Log.Saved(id);
+      this.Log.Saved(id, message);
     }
 
     public Maybe<string> Read(int id)
