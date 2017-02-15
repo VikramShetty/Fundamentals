@@ -41,5 +41,14 @@ namespace FundamentalsTests
       sql.WriteAllText(49, "Extra text");
       Assert.AreEqual("Extra text", sql.ReadAllText(49).DefaultIfEmpty("").Single());
     }
+
+    [TestMethod]
+    public void WorkingFileStore()
+    {
+      var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+      var file = new FileStore(d);
+      file.WriteAllText(51, "Extra file store text");
+      Assert.AreEqual("Extra file store text", file.ReadAllText(51).DefaultIfEmpty("").Single());
+    }
   }
 }
