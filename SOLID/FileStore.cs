@@ -22,7 +22,11 @@ namespace SOLID
 
     public virtual Maybe<string> ReadAllText(int id)
     {
-      return new Maybe<string>(File.ReadAllText(GetFileInfo(id).FullName));
+      var file = this.GetFileInfo(id);
+      if (!file.Exists)
+        return new Maybe<string>();
+      var path = file.FullName;
+      return new Maybe<string>(File.ReadAllText(path));
     }
 
     public virtual FileInfo GetFileInfo(int id)

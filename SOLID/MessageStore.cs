@@ -36,16 +36,14 @@ namespace SOLID
     public Maybe<string> Read(int id)
     {
       this.Log.Reading(id);
-      var file = GetFileInfo(id);
-      if (!file.Exists)
-      {
-        this.Log.DidNotFind(id);
-        return new Maybe<string>();
-      }
       var message = this.Cache.GetOrAdd(id, _ =>
-        this.Store.ReadAllText(id));
+       this.Store.ReadAllText(id));
 
-      this.Log.Returning(id);
+      if(message.Any())
+        this.Log.Returning(id);
+      else 
+        this.Log.DidNotFind(id);
+
       return message;
     }
 
