@@ -28,8 +28,8 @@ namespace SOLID
     public void Save(int id, string message)
     {
       this.Log.Saving(id, message);
-      this.Store.WriteAllText(id, message);
-      this.Cache.AddOrUpdate(id, message);
+      this.Store.Save(id, message);
+      this.Cache.Save(id, message);
       this.Log.Saved(id, message);
     }
 

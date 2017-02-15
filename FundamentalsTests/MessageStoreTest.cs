@@ -38,7 +38,7 @@ namespace FundamentalsTests
     public void WorkingSqlStore()
     {
       var sql = new SqlStore();
-      sql.WriteAllText(49, "Extra text");
+      sql.Save(49, "Extra text");
       Assert.AreEqual("Extra text", sql.ReadAllText(49).DefaultIfEmpty("").Single());
     }
 
@@ -47,7 +47,7 @@ namespace FundamentalsTests
     {
       var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
       var file = new FileStore(d);
-      file.WriteAllText(51, "Extra file store text");
+      file.Save(51, "Extra file store text");
       Assert.AreEqual("Extra file store text", file.ReadAllText(51).DefaultIfEmpty("").Single());
     }
   }
