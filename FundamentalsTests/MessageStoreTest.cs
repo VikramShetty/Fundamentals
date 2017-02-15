@@ -39,7 +39,7 @@ namespace FundamentalsTests
     {
       var sql = new SqlStore();
       sql.WriteAllText(49, "Extra text");
-      Assert.AreEqual("Extra text", sql.ReadAllText("49"));
+      Assert.AreEqual("Extra text", sql.ReadAllText(49).DefaultIfEmpty("").Single());
     }
   }
 }

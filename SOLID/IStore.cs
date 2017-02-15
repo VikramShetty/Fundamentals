@@ -6,7 +6,7 @@ namespace SOLID
   {
     void WriteAllText(int id, string message);
 
-    string ReadAllText(string path);
+    Maybe<string> ReadAllText(int id);
 
     FileInfo GetFileInfo(int id);
   }

@@ -20,9 +20,9 @@ namespace SOLID
       File.WriteAllText(this.GetFileInfo(id).FullName, message);
     }
 
-    public virtual string ReadAllText(string path)
+    public virtual Maybe<string> ReadAllText(int id)
     {
-      return File.ReadAllText(path);
+      return new Maybe<string>(File.ReadAllText(GetFileInfo(id).FullName));
     }
 
     public virtual FileInfo GetFileInfo(int id)

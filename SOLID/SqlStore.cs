@@ -20,15 +20,16 @@ namespace SOLID
       table.Rows.Add(id, message);
     }
 
-    public string ReadAllText(string path)
+    public Maybe<string> ReadAllText(int id)
     {
       string val = "";
       foreach (DataRow row in table.Rows)
       {
-        if (row["ID"].ToString() == path)
+        if (Convert.ToInt32(row["ID"]) == id)
           val = row["Message"].ToString();
       }
-      return val;
+      var m = new Maybe<string>(val);
+      return m;
     }
 
     public System.IO.FileInfo GetFileInfo(int id)

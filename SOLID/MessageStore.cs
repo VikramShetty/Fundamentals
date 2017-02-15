@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace SOLID
 {
@@ -42,10 +43,10 @@ namespace SOLID
         return new Maybe<string>();
       }
       var message = this.Cache.GetOrAdd(id, _ =>
-        this.Store.ReadAllText(file.FullName));
+        this.Store.ReadAllText(id));
 
       this.Log.Returning(id);
-      return new Maybe<string>(message);
+      return message;
     }
 
     public FileInfo GetFileInfo(int id)

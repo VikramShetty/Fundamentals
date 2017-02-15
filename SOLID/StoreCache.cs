@@ -5,19 +5,20 @@ namespace SOLID
 {
   public class StoreCache
   {
-    private readonly ConcurrentDictionary<int, string> cache;
+    private readonly ConcurrentDictionary<int, Maybe<string>> cache;
 
     public StoreCache()
     {
-      cache = new ConcurrentDictionary<int, string>();
+      cache = new ConcurrentDictionary<int, Maybe<string>>();
     }
 
     public virtual void AddOrUpdate(int id, string message)
     {
-      this.cache.AddOrUpdate(id, message, (i, s) => message);
+      var m = new Maybe<string>(message);
+      this.cache.AddOrUpdate(id, m, (i, s) => m);
     }
 
-    public virtual string GetOrAdd(int id, Func<int, string> messageFactory)
+    public virtual Maybe<string> GetOrAdd(int id, Func<int, Maybe<string>> messageFactory)
     {
      return this.cache.GetOrAdd(id, messageFactory);
     }
