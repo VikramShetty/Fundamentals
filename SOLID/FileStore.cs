@@ -15,9 +15,9 @@ namespace SOLID
 
       this.workingDirectory = workingDirectory;
     }
-    public virtual void WriteAllText(string path, string message)
+    public virtual void WriteAllText(int id, string message)
     {
-      File.WriteAllText(path, message);
+      File.WriteAllText(this.GetFileInfo(id).FullName, message);
     }
 
     public virtual string ReadAllText(string path)

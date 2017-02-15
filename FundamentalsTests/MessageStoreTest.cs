@@ -38,7 +38,7 @@ namespace FundamentalsTests
     public void WorkingSqlStore()
     {
       var sql = new SqlStore();
-      sql.WriteAllText("49", "Extra text");
+      sql.WriteAllText(49, "Extra text");
       Assert.AreEqual("Extra text", sql.ReadAllText("49"));
     }
   }

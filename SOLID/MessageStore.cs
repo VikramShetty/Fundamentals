@@ -27,8 +27,7 @@ namespace SOLID
     public void Save(int id, string message)
     {
       this.Log.Saving(id);
-      var file = GetFileInfo(id); //ok to query from command
-      this.Store.WriteAllText(file.FullName, message);
+      this.Store.WriteAllText(id, message);
       this.Cache.AddOrUpdate(id, message);
       this.Log.Saved(id);
     }

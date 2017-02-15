@@ -4,7 +4,7 @@ namespace SOLID
 {
   public interface IStore
   {
-    void WriteAllText(string path, string message);
+    void WriteAllText(int id, string message);
 
     string ReadAllText(string path);
 

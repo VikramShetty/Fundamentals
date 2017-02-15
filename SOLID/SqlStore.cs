@@ -15,9 +15,9 @@ namespace SOLID
       table.Columns.Add("Id", typeof(int));
       table.Columns.Add("Message", typeof(string));
     }
-    public void WriteAllText(string path, string message)
+    public void WriteAllText(int id, string message)
     {
-      table.Rows.Add(Convert.ToInt32(path), message);
+      table.Rows.Add(id, message);
     }
 
     public string ReadAllText(string path)
