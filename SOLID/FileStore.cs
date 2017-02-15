@@ -3,7 +3,7 @@ using System.IO;
 
 namespace SOLID
 {
-  public class FileStore : IStore , IStoreWriter
+  public class FileStore : IStore 
   {
     private readonly DirectoryInfo workingDirectory;
     public FileStore(DirectoryInfo workingDirectory)
