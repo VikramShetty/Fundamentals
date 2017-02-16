@@ -11,6 +11,7 @@ namespace SOLID
     private readonly IStore store;
     private readonly IFileLocator fileLocator;
     private readonly IStoreWriter writer;
+    private readonly IStoreReader reader;
     public MessageStore(DirectoryInfo workingDirectory)
     {
       if (workingDirectory == null)
@@ -23,11 +24,12 @@ namespace SOLID
       var fileStore = new FileStore(workingDirectory);
       var c = new StoreCache(fileStore,fileStore);
       this.cache = c;
-      var l = new StoreLogger(c);
+      var l = new StoreLogger(c,c);
       this.log = l;
       this.store = fileStore;
       this.fileLocator = fileStore;
       this.writer = l;
+      this.reader = l;
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }
@@ -39,15 +41,7 @@ namespace SOLID
 
     public Maybe<string> Read(int id)
     {
-      this.Log.Reading(id);
-      var message = this.Cache.Read(id);
-
-      if(message.Any())
-        this.Log.Returning(id);
-      else 
-        this.Log.DidNotFind(id);
-
-      return message;
+      return this.Cache.Read(id);
     }
 
     public FileInfo GetFileInfo(int id)
@@ -63,6 +57,11 @@ namespace SOLID
     public virtual IStoreWriter StoreWriter
     {
       get { return this.writer; }
+    }
+
+    public virtual IStoreReader StoreReader
+    {
+      get { return this.reader; }
     }
 
     public virtual StoreCache Cache
