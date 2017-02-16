@@ -40,8 +40,13 @@ namespace SOLID
     public Maybe<string> Read(int id)
     {
       this.Log.Reading(id);
-      var message = this.Cache.GetOrAdd(id, _ =>
-       this.Store.ReadAllText(id));
+      var message = this.Cache.GetOrAdd(id);
+      if (!message.Any())
+      {
+        message = this.Store.ReadAllText(id);
+        if(message.Any())
+          this.Cache.Save(id,message.Single());
+      }
 
       if(message.Any())
         this.Log.Returning(id);
