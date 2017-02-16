@@ -22,9 +22,11 @@ namespace SOLID
       this.cache.AddOrUpdate(id, m, (i, s) => m);
     }
 
-    public virtual Maybe<string> GetOrAdd(int id, Func<int, Maybe<string>> messageFactory)
+    public virtual Maybe<string> GetOrAdd(int id)
     {
-     return this.cache.GetOrAdd(id, messageFactory);
+      Maybe<string> message;
+     this.cache.TryGetValue(id, out message);
+      return message;
     }
   }
 }
