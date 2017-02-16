@@ -4,17 +4,13 @@ namespace SOLID
 {
   public class MessageStoreLog4Net : MessageStore
   {
-    public MessageStoreLog4Net(DirectoryInfo workingDirectory)
-      : base(workingDirectory)
+    public MessageStoreLog4Net(IStoreWriter writer,
+      IStoreReader reader,
+      IFileLocator fileLocator)
+      : base(writer,reader,fileLocator)
     {
 
     }
-
-    public override StoreLogger Log
-    {
-      get { return new StoreLogger4Net(this.Writer,this.Reader); }
-    }
-
   }
   
 }

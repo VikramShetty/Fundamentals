@@ -6,32 +6,24 @@ namespace SOLID
 {
   public class MessageStore
   {
-    //Below 3 are header interfaces
-    private readonly StoreCache cache;
-    private readonly StoreLogger log;
-    private readonly IStore store;
-    //Below 3 are role interfaces
-    private readonly IFileLocator fileLocator;
     private readonly IStoreWriter writer;
     private readonly IStoreReader reader;
-    public MessageStore(DirectoryInfo workingDirectory)
+    private readonly IFileLocator fileLocator;
+    public MessageStore(IStoreWriter writer,
+      IStoreReader reader,
+      IFileLocator fileLocator
+      )
     {
-      if (workingDirectory == null)
-        throw new ArgumentNullException("workingDirectory");
-      if (!Directory.Exists(workingDirectory.FullName))
-        throw new ArgumentException("You tried to provide a working directory string that doesn't represent a working directory. It's not your fault, but please supply a valid path to an existing directory."
-          , "workingDirectory");
+      if (writer == null)
+        throw new ArgumentNullException("writer");
+      if (reader == null)
+        throw new ArgumentNullException("reader");
+      if (fileLocator == null)
+        throw new ArgumentNullException("fileLocator");
 
-      this.WorkingDirectory = workingDirectory;
-      var fileStore = new FileStore(workingDirectory);
-      var c = new StoreCache(fileStore,fileStore);
-      this.cache = c;
-      var l = new StoreLogger(c,c);
-      this.log = l;
-      this.store = fileStore;
-      this.fileLocator = fileStore;
-      this.writer = l;
-      this.reader = l;
+      this.fileLocator = fileLocator;
+      this.writer = writer;
+      this.reader = reader;
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }
@@ -43,29 +35,14 @@ namespace SOLID
 
     public Maybe<string> Read(int id)
     {
-      return this.Cache.Read(id);
+      return this.reader.Read(id);
     }
 
     public FileInfo GetFileInfo(int id)
     {
       return this.fileLocator.GetFileInfo(id);
     }
-
-    public virtual IStore Store
-    {
-      get { return this.store; }
-    }
-
-    public virtual StoreCache Cache
-    {
-      get { return this.cache; }
-    }
-
-    public virtual StoreLogger Log
-    {
-      get { return this.log; }
-    }
-
+    
     public virtual IStoreWriter Writer
     {
       get { return this.writer; }

@@ -13,7 +13,8 @@ namespace FundamentalsTests
     public void WhenRead_With49_ReturnsEmptyString()
     {
       var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-      var fs = new MessageStore(d);
+      var file = new FileStore(d);
+      var fs = new MessageStore(file, file, file);
       fs.Save(49, "Extra text");
       Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());
     }
@@ -29,7 +30,8 @@ namespace FundamentalsTests
     public void OCP_ReplaceLog_WithLog4Net()
     {
       var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-      var fs = new MessageStoreLog4Net(d);
+      var file = new FileStore(d);
+      var fs = new MessageStoreLog4Net(file, file, file);
       fs.Save(49, "Extra text");
       Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());
     }
