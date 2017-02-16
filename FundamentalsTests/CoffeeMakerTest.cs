@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CoffeeMaker;
 
 namespace FundamentalsTests
 {
@@ -7,7 +8,7 @@ namespace FundamentalsTests
   public class CoffeeMakerTest
   {
     [TestMethod]
-    public void EmptyTest()
+    public void One_Coffee_Cycle()
     {
       Assert.IsTrue(true);
     }
