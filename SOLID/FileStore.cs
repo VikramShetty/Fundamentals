@@ -3,7 +3,7 @@ using System.IO;
 
 namespace SOLID
 {
-  public class FileStore : IStore, IFileLocator, IStoreReader , IStoreWriter
+  public class FileStore :  IFileLocator, IStoreReader , IStoreWriter
   {
     private readonly DirectoryInfo workingDirectory;
     public FileStore(DirectoryInfo workingDirectory)
@@ -15,12 +15,12 @@ namespace SOLID
 
       this.workingDirectory = workingDirectory;
     }
-    public virtual void Save(int id, string message)
+    public void Save(int id, string message)
     {
       File.WriteAllText(this.GetFileInfo(id).FullName, message);
     }
 
-    public virtual Maybe<string> Read(int id)
+    public Maybe<string> Read(int id)
     {
       var file = this.GetFileInfo(id);
       if (!file.Exists)
@@ -29,7 +29,7 @@ namespace SOLID
       return new Maybe<string>(File.ReadAllText(path));
     }
 
-    public virtual FileInfo GetFileInfo(int id)
+    public FileInfo GetFileInfo(int id)
     {
       return new FileInfo(Path.Combine(this.workingDirectory.FullName, id + ".txt"));
     }

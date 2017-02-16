@@ -10,29 +10,31 @@ namespace SOLID
   {
     private readonly IStoreWriter writer;
     private readonly IStoreReader reader;
+    private readonly ILogger log;
 
-    public StoreLogger4Net(IStoreWriter writer, IStoreReader reader)
-      : base(writer, reader)
+    public StoreLogger4Net(ILogger log, IStoreWriter writer, IStoreReader reader)
+      : base(log, writer, reader)
     {
+      this.log = log;
       this.writer = writer;
       this.reader = reader;
     }
 
     public void Save(int id, string message)
     {
-      Log4Net.Information("Saving Message {id}", id);
+      this.log.Information("Saving Message {id}", id);
       this.writer.Save(id, message);
-      Log4Net.Information("Saved Message {id}", id);
+      this.log.Information("Saved Message {id}", id);
     }
 
     public Maybe<string> Read(int id)
     {
-      Log4Net.Debug("Reading Message {id}", id);
+      this.log.Debug("Reading Message {id}", id);
       var retVal = this.reader.Read(id);
       if (retVal.Any())
-        Log4Net.Debug("Returning Message {id}", id);
+        this.log.Debug("Returning Message {id}", id);
       else
-        Log4Net.Debug("No Message {id} found", id);
+        this.log.Debug("No Message {id} found", id);
 
       return retVal;
     }

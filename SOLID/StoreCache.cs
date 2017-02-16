@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SOLID
 {
-  public class StoreCache : IStoreCache, IStoreWriter, IStoreReader
+  public class StoreCache : IStoreWriter, IStoreReader
   {
     private readonly IStoreWriter writer;
     private readonly IStoreReader reader;
@@ -17,14 +17,14 @@ namespace SOLID
       cache = new ConcurrentDictionary<int, Maybe<string>>();
     }
 
-    public virtual void Save(int id, string message)
+    public void Save(int id, string message)
     {
       this.writer.Save(id, message);
       var m = new Maybe<string>(message);
       this.cache.AddOrUpdate(id, m, (i, s) => m);
     }
 
-    public virtual Maybe<string> Read(int id)
+    public Maybe<string> Read(int id)
     {
       Maybe<string> message;
       if(this.cache.TryGetValue(id, out message))

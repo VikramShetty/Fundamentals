@@ -5,33 +5,37 @@ namespace SOLID
 {
   public class StoreLogger : IStoreLogger, IStoreWriter, IStoreReader
   {
+    private readonly ILogger log;
     private readonly IStoreWriter writer;
     private readonly IStoreReader reader;
 
-    public StoreLogger(IStoreWriter writer, IStoreReader reader)
+    public StoreLogger(ILogger log,
+      IStoreWriter writer, IStoreReader reader)
     {
       this.writer = writer;
       this.reader = reader;
+      this.log = log;
     }
 
     public void Save(int id, string message)
     {
-      Log.Information("Saving Message {id}", id);
+      this.log.Information("Saving Message {id}", id);
       this.writer.Save(id, message);
-      Log.Information("Saved Message {id}", id);
+      this.log.Information("Saved Message {id}", id);
     }
 
     public Maybe<string> Read(int id)
     {
-      Log.Debug("Reading Message {id}", id);
+      this.log.Debug("Reading Message {id}", id);
       var retVal = this.reader.Read(id);
       if (retVal.Any())
-        Log.Debug("Returning Message {id}", id);
+        this.log.Debug("Returning Message {id}", id);
       else
-        Log.Debug("No Message {id} found", id);
+        this.log.Debug("No Message {id} found", id);
 
       return retVal;
     }
+
     public virtual void Saving(int id, string message)
     {
       Log.Information("Saving Message {id}", id);
