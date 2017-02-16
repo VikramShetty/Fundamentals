@@ -2,7 +2,7 @@
 
 namespace SOLID
 {
-  public interface IStore : IStoreWriter , IFileLocator
+  public interface IStore : IStoreWriter
   {
     Maybe<string> ReadAllText(int id);
   }

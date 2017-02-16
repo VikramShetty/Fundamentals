@@ -9,6 +9,7 @@ namespace SOLID
     private readonly StoreCache cache;
     private readonly StoreLogger log;
     private readonly IStore store;
+    private readonly IFileLocator fileLocator;
     public MessageStore(DirectoryInfo workingDirectory)
     {
       if (workingDirectory == null)
@@ -20,7 +21,9 @@ namespace SOLID
       this.WorkingDirectory = workingDirectory;
       this.cache = new StoreCache();
       this.log = new StoreLogger();
-      this.store = new FileStore(workingDirectory);
+      var fileStore = new FileStore(workingDirectory);
+      this.store = fileStore;
+      this.fileLocator = fileStore;
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }
@@ -49,7 +52,7 @@ namespace SOLID
 
     public FileInfo GetFileInfo(int id)
     {
-      return this.store.GetFileInfo(id);
+      return this.fileLocator.GetFileInfo(id);
     }
 
     public virtual IStore Store
