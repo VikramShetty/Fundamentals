@@ -60,5 +60,24 @@ namespace FundamentalsTests
       var file = new FileStore(d);
       Assert.AreEqual("", file.Read(60).DefaultIfEmpty("").Single());
     }
+
+    [TestMethod]
+    public void SOLID_FileStore_With_NormalLog()
+    {
+      var logger = new LoggerConfiguration().CreateLogger();
+      var fileStore = new FileStore(
+        new DirectoryInfo(
+          AppDomain.CurrentDomain.BaseDirectory));
+      var cache = new StoreCache(fileStore, fileStore);
+      var log = new StoreLogger(logger, cache, cache);
+      var msgStore = new MessageStore(
+        log,
+        log,
+        fileStore
+        );
+      msgStore.Save(101, "All comes togther");
+      Assert.AreEqual("All comes togther", 
+        msgStore.Read(101).DefaultIfEmpty("").Single());
+    }
   }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SOLID
 {
-  class Log
+  class Log : ILogger
   {
-    internal static void Information(string p, int id)
+    public void Information(string p, int id)
     {
       Console.Write("Log Information : " + id + " " + p + Environment.NewLine);
     }
 
-    internal static void Debug(string p, int id)
+    public void Debug(string p, int id)
     {
       Console.Write("Log Debug : " + id + " " + p + Environment.NewLine);
     }

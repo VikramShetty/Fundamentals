@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SOLID
 {
-  public class StoreLogger : IStoreLogger, IStoreWriter, IStoreReader
+  public class StoreLogger : IStoreWriter, IStoreReader
   {
     private readonly ILogger log;
     private readonly IStoreWriter writer;
@@ -34,31 +34,6 @@ namespace SOLID
         this.log.Debug("No Message {id} found", id);
 
       return retVal;
-    }
-
-    public virtual void Saving(int id, string message)
-    {
-      Log.Information("Saving Message {id}", id);
-    }
-
-    public virtual void Saved(int id, string message)
-    {
-      Log.Information("Saved Message {id}", id);
-    }
-
-    public virtual void Reading(int id)
-    {
-      Log.Debug("Reading Message {id}", id);
-    }
-
-    public virtual void DidNotFind(int id)
-    {
-      Log.Debug("No Message {id} found", id);
-    }
-
-    public virtual void Returning(int id)
-    {
-      Log.Debug("Returning Message {id}", id);
     }
   }
 }

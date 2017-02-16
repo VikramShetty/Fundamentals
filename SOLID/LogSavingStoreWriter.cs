@@ -10,7 +10,7 @@ namespace SOLID
   {
     public void Save(int id, string message)
     {
-      Log.Information("Saving Message {id}", id);
+      new Log().Information("Saving Message {id}", id);
     }
   }
 }

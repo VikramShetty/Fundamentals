@@ -52,6 +52,7 @@
     <Compile Include="IStoreCache.cs" />
     <Compile Include="IStoreLogger.cs" />
     <Compile Include="Log4Net.cs" />
+    <Compile Include="LoggerConfiguration.cs" />
     <Compile Include="LogSavedStoreWriter.cs" />
     <Compile Include="LogSavingStoreWriter.cs" />
     <Compile Include="MessageStore.cs" />
