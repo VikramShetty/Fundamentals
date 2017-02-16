@@ -23,15 +23,11 @@ namespace SOLID
       var fileStore = new FileStore(workingDirectory);
       var c = new StoreCache(fileStore);
       this.cache = c;
-      this.log = new StoreLogger();
-      
+      var l = new StoreLogger(c);
+      this.log = l;
       this.store = fileStore;
       this.fileLocator = fileStore;
-      this.writer = new CompositeStoreWriter(
-        new LogSavingStoreWriter(),
-        c,
-        new LogSavedStoreWriter()
-        );
+      this.writer = new CompositeStoreWriter(l);
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }

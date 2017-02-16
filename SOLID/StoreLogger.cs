@@ -1,8 +1,14 @@
 ﻿
 namespace SOLID
 {
-  public class StoreLogger : IStoreLogger
+  public class StoreLogger : IStoreLogger, IStoreWriter
   {
+    private readonly IStoreWriter writer;
+
+    public StoreLogger(IStoreWriter writer)
+    {
+      this.writer = writer;
+    }
     public virtual void Saving(int id, string message)
     {
       Log.Information("Saving Message {id}", id);
@@ -26,6 +32,13 @@ namespace SOLID
     public virtual void Returning(int id)
     {
       Log.Debug("Returning Message {id}", id);
+    }
+
+    public void Save(int id, string message)
+    {
+      Log.Information("Saving Message {id}", id);
+      this.writer.Save(id, message);
+      Log.Information("Saved Message {id}", id);
     }
   }
 }

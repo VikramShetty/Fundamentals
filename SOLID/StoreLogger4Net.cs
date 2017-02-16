@@ -8,6 +8,13 @@ namespace SOLID
 {
   public class StoreLogger4Net : StoreLogger
   {
+    private readonly IStoreWriter writer;
+
+    public StoreLogger4Net(IStoreWriter writer)
+      : base(writer)
+    {
+      this.writer = writer;
+    }
     public override void Saving(int id, string message)
     {
       Log4Net.Information("Saving Message {id}", id);
@@ -31,6 +38,13 @@ namespace SOLID
     public override void Returning(int id)
     {
       Log4Net.Debug("Returning Message {id}", id);
+    }
+
+    public void Save(int id, string message)
+    {
+      Log4Net.Information("Saving Message {id}", id);
+      this.writer.Save(id, message);
+      Log4Net.Information("Saved Message {id}", id);
     }
   }
 }
