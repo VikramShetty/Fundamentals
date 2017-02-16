@@ -27,7 +27,7 @@ namespace SOLID
       this.log = l;
       this.store = fileStore;
       this.fileLocator = fileStore;
-      this.writer = new CompositeStoreWriter(l);
+      this.writer = l;
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }
