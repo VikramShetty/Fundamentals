@@ -20,15 +20,15 @@ namespace SOLID
           , "workingDirectory");
 
       this.WorkingDirectory = workingDirectory;
-      var c = new StoreCache();
+      var fileStore = new FileStore(workingDirectory);
+      var c = new StoreCache(fileStore);
       this.cache = c;
       this.log = new StoreLogger();
-      var fileStore = new FileStore(workingDirectory);
+      
       this.store = fileStore;
       this.fileLocator = fileStore;
       this.writer = new CompositeStoreWriter(
         new LogSavingStoreWriter(),
-        fileStore,
         c,
         new LogSavedStoreWriter()
         );
