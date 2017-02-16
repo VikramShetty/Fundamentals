@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SOLID
 {
-  public class SqlStore : IStore
+  public class SqlStore : IStoreReader, IStoreWriter
   {
     DataTable table = new DataTable();
     public SqlStore()
@@ -30,11 +30,6 @@ namespace SOLID
       }
       var m = new Maybe<string>(val);
       return m;
-    }
-
-    public System.IO.FileInfo GetFileInfo(int id)
-    {
-      throw new NotSupportedException();
     }
   }
 }
