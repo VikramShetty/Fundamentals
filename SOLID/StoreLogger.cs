@@ -19,9 +19,9 @@ namespace SOLID
 
     public void Save(int id, string message)
     {
-      this.log.Information("Saving Message {id}", id);
+      this.log.Information("Saving Message {id} : " + message , id);
       this.writer.Save(id, message);
-      this.log.Information("Saved Message {id}", id);
+      this.log.Information("Saved Message {id} : " + message, id);
     }
 
     public Maybe<string> Read(int id)
