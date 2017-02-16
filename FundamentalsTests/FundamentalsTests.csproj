@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="MessageStoreTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CoffeeMakerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SOLID\SOLID.csproj">
