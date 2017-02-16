@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CoffeeMaker;
 
-namespace Ploeh.Samples.MakeCoffee
+namespace FundamentalsTests
 {
     public class CoffeMakerInMemory : ICoffeeMaker
     {
