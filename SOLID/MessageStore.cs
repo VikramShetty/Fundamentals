@@ -6,9 +6,11 @@ namespace SOLID
 {
   public class MessageStore
   {
+    //Below 3 are header interfaces
     private readonly StoreCache cache;
     private readonly StoreLogger log;
     private readonly IStore store;
+    //Below 3 are role interfaces
     private readonly IFileLocator fileLocator;
     private readonly IStoreWriter writer;
     private readonly IStoreReader reader;
