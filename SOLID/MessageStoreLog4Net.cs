@@ -12,7 +12,7 @@ namespace SOLID
 
     public override StoreLogger Log
     {
-      get { return new StoreLogger4Net(this.Store); }
+      get { return new StoreLogger4Net(this.StoreWriter); }
     }
 
   }

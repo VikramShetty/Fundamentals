@@ -50,5 +50,13 @@ namespace FundamentalsTests
       file.Save(51, "Extra file store text");
       Assert.AreEqual("Extra file store text", file.Read(51).DefaultIfEmpty("").Single());
     }
+
+    [TestMethod]
+    public void WorkingFileStoreNoId()
+    {
+      var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+      var file = new FileStore(d);
+      Assert.AreEqual("", file.Read(60).DefaultIfEmpty("").Single());
+    }
   }
 }

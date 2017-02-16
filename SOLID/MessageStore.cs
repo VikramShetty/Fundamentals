@@ -21,7 +21,7 @@ namespace SOLID
 
       this.WorkingDirectory = workingDirectory;
       var fileStore = new FileStore(workingDirectory);
-      var c = new StoreCache(fileStore);
+      var c = new StoreCache(fileStore,fileStore);
       this.cache = c;
       var l = new StoreLogger(c);
       this.log = l;
@@ -41,12 +41,6 @@ namespace SOLID
     {
       this.Log.Reading(id);
       var message = this.Cache.Read(id);
-      if (!message.Any())
-      {
-        message = this.Store.Read(id);
-        if(message.Any())
-          this.Cache.Save(id,message.Single());
-      }
 
       if(message.Any())
         this.Log.Returning(id);
@@ -64,6 +58,11 @@ namespace SOLID
     public virtual IStore Store
     {
       get { return this.store; }
+    }
+
+    public virtual IStoreWriter StoreWriter
+    {
+      get { return this.writer; }
     }
 
     public virtual StoreCache Cache

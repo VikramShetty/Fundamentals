@@ -2,7 +2,7 @@
 
 namespace SOLID
 {
-  public interface IStore
+  public interface IStoreReader
   {
     Maybe<string> Read(int id);
   }
