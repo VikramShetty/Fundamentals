@@ -10,6 +10,7 @@ namespace SOLID
     private readonly StoreLogger log;
     private readonly IStore store;
     private readonly IFileLocator fileLocator;
+    private readonly IStoreWriter writer;
     public MessageStore(DirectoryInfo workingDirectory)
     {
       if (workingDirectory == null)
@@ -19,21 +20,25 @@ namespace SOLID
           , "workingDirectory");
 
       this.WorkingDirectory = workingDirectory;
-      this.cache = new StoreCache();
+      var c = new StoreCache();
+      this.cache = c;
       this.log = new StoreLogger();
       var fileStore = new FileStore(workingDirectory);
       this.store = fileStore;
       this.fileLocator = fileStore;
+      this.writer = new CompositeStoreWriter(
+        new LogSavingStoreWriter(),
+        fileStore,
+        c,
+        new LogSavedStoreWriter()
+        );
     }
     
     public DirectoryInfo WorkingDirectory { get; private set; }
 
     public void Save(int id, string message)
     {
-      new LogSavingStoreWriter().Save(id, message);
-      this.Store.Save(id, message);
-      this.Cache.Save(id, message);
-      new LogSavedStoreWriter().Save(id, message);
+      writer.Save(id,message);
     }
 
     public Maybe<string> Read(int id)
