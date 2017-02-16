@@ -96,5 +96,41 @@ namespace FundamentalsTests
       Assert.AreEqual("All comes togther with SQL",
         msgStore.Read(102).DefaultIfEmpty("").Single());
     }
+
+    [TestMethod]
+    public void SOLID_FileStore_With_Log4Net()
+    {
+      var logger = new LoggerConfiguration().CreateLoggerLog4Net();
+      var fileStore = new FileStore(
+        new DirectoryInfo(
+          AppDomain.CurrentDomain.BaseDirectory));
+      var cache = new StoreCache(fileStore, fileStore);
+      var log = new StoreLogger(logger, cache, cache);
+      var msgStore = new MessageStore(
+        log,
+        log,
+        fileStore
+        );
+      msgStore.Save(101, "All comes togther");
+      Assert.AreEqual("All comes togther",
+        msgStore.Read(101).DefaultIfEmpty("").Single());
+    }
+
+    [TestMethod]
+    public void SOLID_SqlStore_With_Log4Net()
+    {
+      var logger = new LoggerConfiguration().CreateLoggerLog4Net();
+      var sqlStore = new SqlStore();
+      var cache = new StoreCache(sqlStore, sqlStore);
+      var log = new StoreLogger(logger, cache, cache);
+      var msgStore = new MessageStore(
+        log,
+        log,
+        new FileLocator()
+        );
+      msgStore.Save(102, "All comes togther with SQL");
+      Assert.AreEqual("All comes togther with SQL",
+        msgStore.Read(102).DefaultIfEmpty("").Single());
+    }
   }
 }
