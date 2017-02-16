@@ -29,11 +29,13 @@ namespace FundamentalsTests
     [TestMethod]
     public void OCP_ReplaceLog_WithLog4Net()
     {
+      //Older way to to replace better ways in SOLID_FileStore_With_Log4Net()
+      /*
       var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
       var file = new FileStore(d);
       var fs = new MessageStoreLog4Net(file, file, file);
       fs.Save(49, "Extra text");
-      Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());
+      Assert.AreEqual("Extra text", fs.Read(49).DefaultIfEmpty("").Single());*/
     }
     
     [TestMethod]
