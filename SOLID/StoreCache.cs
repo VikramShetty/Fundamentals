@@ -22,7 +22,7 @@ namespace SOLID
       this.cache.AddOrUpdate(id, m, (i, s) => m);
     }
 
-    public virtual Maybe<string> GetOrAdd(int id)
+    public virtual Maybe<string> Read(int id)
     {
       Maybe<string> message;
      this.cache.TryGetValue(id, out message);

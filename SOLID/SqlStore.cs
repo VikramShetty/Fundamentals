@@ -20,7 +20,7 @@ namespace SOLID
       table.Rows.Add(id, message);
     }
 
-    public Maybe<string> ReadAllText(int id)
+    public Maybe<string> Read(int id)
     {
       string val = "";
       foreach (DataRow row in table.Rows)

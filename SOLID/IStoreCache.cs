@@ -7,6 +7,6 @@ namespace SOLID
 {
   interface IStoreCache
   {
-    Maybe<string> GetOrAdd(int id);
+    Maybe<string> Read(int id);
   }
 }

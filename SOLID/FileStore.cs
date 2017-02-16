@@ -20,7 +20,7 @@ namespace SOLID
       File.WriteAllText(this.GetFileInfo(id).FullName, message);
     }
 
-    public virtual Maybe<string> ReadAllText(int id)
+    public virtual Maybe<string> Read(int id)
     {
       var file = this.GetFileInfo(id);
       if (!file.Exists)

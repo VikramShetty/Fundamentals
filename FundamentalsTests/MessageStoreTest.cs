@@ -39,7 +39,7 @@ namespace FundamentalsTests
     {
       var sql = new SqlStore();
       sql.Save(49, "Extra text");
-      Assert.AreEqual("Extra text", sql.ReadAllText(49).DefaultIfEmpty("").Single());
+      Assert.AreEqual("Extra text", sql.Read(49).DefaultIfEmpty("").Single());
     }
 
     [TestMethod]
@@ -48,7 +48,7 @@ namespace FundamentalsTests
       var d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
       var file = new FileStore(d);
       file.Save(51, "Extra file store text");
-      Assert.AreEqual("Extra file store text", file.ReadAllText(51).DefaultIfEmpty("").Single());
+      Assert.AreEqual("Extra file store text", file.Read(51).DefaultIfEmpty("").Single());
     }
   }
 }

@@ -4,6 +4,6 @@ namespace SOLID
 {
   public interface IStore : IStoreWriter
   {
-    Maybe<string> ReadAllText(int id);
+    Maybe<string> Read(int id);
   }
 }
