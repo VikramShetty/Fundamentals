@@ -56,16 +56,6 @@ namespace SOLID
       get { return this.store; }
     }
 
-    public virtual IStoreWriter StoreWriter
-    {
-      get { return this.writer; }
-    }
-
-    public virtual IStoreReader StoreReader
-    {
-      get { return this.reader; }
-    }
-
     public virtual StoreCache Cache
     {
       get { return this.cache; }
@@ -74,6 +64,21 @@ namespace SOLID
     public virtual StoreLogger Log
     {
       get { return this.log; }
+    }
+
+    public virtual IStoreWriter Writer
+    {
+      get { return this.writer; }
+    }
+
+    public virtual IStoreReader Reader
+    {
+      get { return this.reader; }
+    }
+
+    public virtual IFileLocator FileLocator
+    {
+      get { return this.fileLocator; }
     }
   }
 }
