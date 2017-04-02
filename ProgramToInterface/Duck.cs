@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProgramToInterface
 {
-    public class Duck
+    public abstract class Duck
     {
-      FlyBehaviour flyBehaviour;
-      QuackBehaviour quackBehaviour;
+      protected FlyBehaviour flyBehaviour;
+      protected QuackBehaviour quackBehaviour;
       public string Swim()
       {
        return "All duck can swim!";
@@ -20,7 +20,7 @@ namespace ProgramToInterface
         return flyBehaviour.PerformFly();
       }
 
-        public string PerformQuack()
+      public string PerformQuack()
       {
         return quackBehaviour.PerformQuack();
       }

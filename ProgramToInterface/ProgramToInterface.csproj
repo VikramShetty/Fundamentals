@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Duck.cs" />
+    <Compile Include="FlyNoWay.cs" />
+    <Compile Include="FlyWithWings.cs" />
+    <Compile Include="MallardDuck.cs" />
     <Compile Include="QuackBehaviour.cs" />
     <Compile Include="FlyBehaviour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

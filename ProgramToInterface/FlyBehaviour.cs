@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramToInterface
 {
-  interface FlyBehaviour
+  public interface FlyBehaviour
   {
     string PerformFly();
   }

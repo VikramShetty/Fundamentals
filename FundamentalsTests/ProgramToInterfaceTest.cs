@@ -10,8 +10,15 @@ namespace FundamentalsTests
     [TestMethod]
     public void ConcreteClass_BehaviourNotChanging()
     {
-      Duck duck = new Duck();
+      Duck duck = new MallardDuck();
       Assert.AreEqual("All duck can swim!", duck.Swim());
-    }   
+    }
+
+    [TestMethod]
+    public void Interface_BehaviourThatChanges()
+    {
+      Duck duck = new MallardDuck();
+      Assert.AreEqual("I am flying.", duck.PerformFly());
+    }
   }
 }
