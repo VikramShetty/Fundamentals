@@ -13,5 +13,10 @@ namespace ProgramToInterface
       flyBehaviour = new FlyNoWay();
       quackBehaviour = new Squeak();
     }
+
+    public override string display()
+    {
+      return "I am a yellow Rubber Duck";
+    }
   }
 }

@@ -59,6 +59,27 @@ namespace FundamentalsTests
       Duck duck = new DecoyDuck();
       Assert.AreEqual("Quack Quack!", duck.PerformQuack());
     }
+
+    [TestMethod]
+    public void Display_MallardDuck()
+    {
+      Duck duck = new MallardDuck();
+      Assert.AreEqual("I am a real Mallard Duck", duck.display());
+    }
+
+    [TestMethod]
+    public void Display_RubberDuck()
+    {
+      Duck duck = new RubberDuck();
+      Assert.AreEqual("I am a yellow Rubber Duck", duck.display());
+    }
+
+    [TestMethod]
+    public void Display_DecoyDuck()
+    {
+      Duck duck = new DecoyDuck();
+      Assert.AreEqual("I am a Decoy Duck", duck.display());
+    }
     
   }
 }

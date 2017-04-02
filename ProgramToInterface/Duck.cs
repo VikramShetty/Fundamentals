@@ -10,6 +10,9 @@ namespace ProgramToInterface
     {
       protected FlyBehaviour flyBehaviour;
       protected QuackBehaviour quackBehaviour;
+
+      public abstract string display();
+
       public string Swim()
       {
        return "All duck can swim!";

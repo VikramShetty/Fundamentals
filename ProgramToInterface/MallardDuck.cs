@@ -13,5 +13,10 @@ namespace ProgramToInterface
       flyBehaviour = new FlyWithWings();
       quackBehaviour = new Quack();
     }
+
+    public override string display()
+    {
+      return "I am a real Mallard Duck";
+    }
   }
 }
