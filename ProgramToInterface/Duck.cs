@@ -8,21 +8,9 @@ namespace ProgramToInterface
 {
     public class Duck
     {
-      FlyBehaviour flyBehaviour;
-      QuackBehaviour quackBehaviour;
       public string Swim()
       {
        return "All duck can swim!";
-      }
-
-      public string PerformFly()
-      {
-        return flyBehaviour.PerformFly();
-      }
-
-        public string PerformQuack()
-      {
-        return quackBehaviour.PerformQuack();
       }
     }
 }
