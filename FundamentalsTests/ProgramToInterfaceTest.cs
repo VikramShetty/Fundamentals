@@ -15,10 +15,17 @@ namespace FundamentalsTests
     }
 
     [TestMethod]
-    public void Interface_BehaviourThatChanges()
+    public void FlyInterface_BehaviourThatChanges()
     {
       Duck duck = new MallardDuck();
       Assert.AreEqual("I am flying.", duck.PerformFly());
+    }
+
+    [TestMethod]
+    public void QuackInterface_BehaviourThatChanges()
+    {
+      Duck duck = new MallardDuck();
+      Assert.AreEqual("Quack Quack!", duck.PerformQuack());
     }
   }
 }

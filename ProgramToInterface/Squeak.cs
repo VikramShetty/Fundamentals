@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProgramToInterface
 {
-  public class MallardDuck : Duck
+  public class Squeak : QuackBehaviour
   {
-    public MallardDuck()
+    public string PerformQuack()
     {
-      flyBehaviour = new FlyWithWings();
-      quackBehaviour = new Quack();
+      return "Squeak";
     }
   }
 }

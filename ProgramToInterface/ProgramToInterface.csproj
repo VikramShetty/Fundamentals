@@ -43,9 +43,12 @@
     <Compile Include="FlyNoWay.cs" />
     <Compile Include="FlyWithWings.cs" />
     <Compile Include="MallardDuck.cs" />
+    <Compile Include="MuteQuack.cs" />
+    <Compile Include="Quack.cs" />
     <Compile Include="QuackBehaviour.cs" />
     <Compile Include="FlyBehaviour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Squeak.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
