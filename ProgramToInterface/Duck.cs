@@ -27,5 +27,15 @@ namespace ProgramToInterface
       {
         return quackBehaviour.PerformQuack();
       }
+
+      public void SetFlyBehaviour(FlyBehaviour flyBehaviour)
+      {
+        this.flyBehaviour = flyBehaviour;
+      }
+
+      public void SetQuackBehaviour(QuackBehaviour quackBehaviour)
+      {
+        this.quackBehaviour = quackBehaviour;
+      }
     }
 }

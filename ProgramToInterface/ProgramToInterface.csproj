@@ -42,8 +42,10 @@
     <Compile Include="DecoyDuck.cs" />
     <Compile Include="Duck.cs" />
     <Compile Include="FlyNoWay.cs" />
+    <Compile Include="FlyRocketPowered.cs" />
     <Compile Include="FlyWithWings.cs" />
     <Compile Include="MallardDuck.cs" />
+    <Compile Include="ModelDuck.cs" />
     <Compile Include="MuteQuack.cs" />
     <Compile Include="Quack.cs" />
     <Compile Include="QuackBehaviour.cs" />

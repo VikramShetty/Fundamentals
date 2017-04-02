@@ -80,6 +80,16 @@ namespace FundamentalsTests
       Duck duck = new DecoyDuck();
       Assert.AreEqual("I am a Decoy Duck", duck.display());
     }
-    
+
+    [TestMethod]
+    public void ModelDuck_RuntimeBehaviourChange()
+    {
+      Duck duck = new ModelDuck();
+      Assert.AreEqual("I am Model Duck", duck.display());
+      Assert.AreEqual("I can't fly", duck.PerformFly());
+      FlyRocketPowered rocketPowered = new FlyRocketPowered();
+      duck.SetFlyBehaviour(rocketPowered);
+      Assert.AreEqual("I am flying with rocket power.", duck.PerformFly());
+    }
   }
 }
