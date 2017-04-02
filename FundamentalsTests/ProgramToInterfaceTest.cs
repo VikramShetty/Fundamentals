@@ -12,6 +12,6 @@ namespace FundamentalsTests
     {
       Duck duck = new Duck();
       Assert.AreEqual("All duck can swim!", duck.Swim());
-    }
+    }   
   }
 }
