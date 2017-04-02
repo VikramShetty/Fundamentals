@@ -27,5 +27,38 @@ namespace FundamentalsTests
       Duck duck = new MallardDuck();
       Assert.AreEqual("Quack Quack!", duck.PerformQuack());
     }
+
+    [TestMethod]
+    public void RubberDuck_DoNotFly()
+    {
+      //Actual use of creating the design
+      Duck duck = new RubberDuck();
+      Assert.AreEqual("I can't fly", duck.PerformFly());
+    }
+
+    [TestMethod]
+    public void RubberDuck_SqueakDoNotQuack()
+    {
+      //Actual use of creating the design
+      Duck duck = new RubberDuck();
+      Assert.AreEqual("Squeak", duck.PerformQuack());
+    }
+
+    [TestMethod]
+    public void DecoyDuck_DoNotFly()
+    {
+      //Actual use of creating the design
+      Duck duck = new DecoyDuck();
+      Assert.AreEqual("I can't fly", duck.PerformFly());
+    }
+
+    [TestMethod]
+    public void DecoyDuck_DoesQuack()
+    {
+      //Actual use of creating the design
+      Duck duck = new DecoyDuck();
+      Assert.AreEqual("Quack Quack!", duck.PerformQuack());
+    }
+    
   }
 }
