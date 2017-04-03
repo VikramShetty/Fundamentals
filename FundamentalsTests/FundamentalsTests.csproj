@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="CoffeMakerInMemory.cs" />
     <Compile Include="MessageStoreTest.cs" />
+    <Compile Include="IteratorAndCompositeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CoffeeMakerTest.cs" />
     <Compile Include="ProgramToInterfaceTest.cs" />
@@ -68,6 +69,10 @@
     <ProjectReference Include="..\CoffeeMaker\CoffeeMaker.csproj">
       <Project>{86e3dde9-f215-4e06-9b7e-b434bbbda132}</Project>
       <Name>CoffeeMaker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IteratorAndComposite\IteratorAndComposite.csproj">
+      <Project>{a9c291c1-c985-4256-bc4c-4b528e386a3b}</Project>
+      <Name>IteratorAndComposite</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProgramToInterface\ProgramToInterface.csproj">
       <Project>{387152df-ac4d-45c4-a20f-8c9681f68fbb}</Project>

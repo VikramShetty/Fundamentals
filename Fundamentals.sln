@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramToInterface", "Progr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{15604939-BA16-4CF3-B456-8161372F7D12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IteratorAndComposite", "IteratorAndComposite\IteratorAndComposite.csproj", "{A9C291C1-C985-4256-BC4C-4B528E386A3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{387152DF-AC4D-45C4-A20F-8C9681F68FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{387152DF-AC4D-45C4-A20F-8C9681F68FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{387152DF-AC4D-45C4-A20F-8C9681F68FBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9C291C1-C985-4256-BC4C-4B528E386A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C291C1-C985-4256-BC4C-4B528E386A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C291C1-C985-4256-BC4C-4B528E386A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C291C1-C985-4256-BC4C-4B528E386A3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +103,6 @@ Global
 		{5A871563-83A1-4655-AFA9-01D8602A76DF} = {1DEEE5CC-4864-4C8B-BC04-2D60DAD990A4}
 		{86E3DDE9-F215-4E06-9B7E-B434BBBDA132} = {1DEEE5CC-4864-4C8B-BC04-2D60DAD990A4}
 		{387152DF-AC4D-45C4-A20F-8C9681F68FBB} = {15604939-BA16-4CF3-B456-8161372F7D12}
+		{A9C291C1-C985-4256-BC4C-4B528E386A3B} = {15604939-BA16-4CF3-B456-8161372F7D12}
 	EndGlobalSection
 EndGlobal
