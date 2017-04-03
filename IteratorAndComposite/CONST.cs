@@ -31,10 +31,25 @@ namespace IteratorAndComposite
     #endregion 
 
     #region "Dinner Menu"
+    public const string D_1_NAME = "Vegetarian BLT";
+    public const string D_1_DESC = "(Fakin') Bacon with Lettuce & tomato on whole wheat";
+    public const double D_1_PRICE = 2.99;
+    public const bool D_1_VEG = true;
+
     public const string D_2_NAME = "BLT";
     public const string D_2_DESC = "Bacon with Lettuce & tomato on whole wheat";
     public const double D_2_PRICE = 2.99;
     public const bool D_2_VEG = false;
+
+    public const string D_3_NAME = "Soup of the day";
+    public const string D_3_DESC = "Soup of the day, with a side of potato salad";
+    public const double D_3_PRICE = 3.29;
+    public const bool D_3_VEG = false;
+
+    public const string D_4_NAME = "Hotdog";
+    public const string D_4_DESC = "A hot dog, with saurkant, relish, onions, topped with cheese";
+    public const double D_4_PRICE = 3.05;
+    public const bool D_4_VEG = false;
     #endregion
   }
 }
