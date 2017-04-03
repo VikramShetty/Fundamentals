@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace IteratorAndComposite
 {
@@ -12,8 +8,10 @@ namespace IteratorAndComposite
     public PanCakeHouseMenu()
     {
       menuItems = new List<MenuItem>();
-      addItem(CONST.P_1_NAME, CONST.P_1_DESC,
-        CONST.P_1_VEG, CONST.P_1_PRICE);
+      addItem(CONST.P_1_NAME, CONST.P_1_DESC, CONST.P_1_VEG, CONST.P_1_PRICE);
+      addItem(CONST.P_2_NAME, CONST.P_2_DESC, CONST.P_2_VEG, CONST.P_2_PRICE);
+      addItem(CONST.P_3_NAME, CONST.P_3_DESC, CONST.P_3_VEG, CONST.P_3_PRICE);
+      addItem(CONST.P_4_NAME, CONST.P_4_DESC, CONST.P_4_VEG, CONST.P_4_PRICE);
     }
 
     public void addItem(string Name, string Description, bool Vegetarian, double price)
@@ -26,5 +24,7 @@ namespace IteratorAndComposite
     {
       return menuItems;
     }
+
+    // other menu methods here
   }
 }

@@ -47,10 +47,31 @@ namespace FundamentalsTests
     }
 
     [TestMethod]
+    public void Four_Items_InMenu_Of_PanCakeHouseMenu()
+    {
+      var panCakeHouseMenu = new PanCakeHouseMenu();
+      Assert.AreEqual(4, panCakeHouseMenu.getMenuItems().Count);
+    }
+
+    [TestMethod]
     public void KNB_Pancake_IsFirstMenu_In_PanCakeHouseMenu()
     {
       var panCakeHouseMenu = new PanCakeHouseMenu();
       Assert.AreEqual(CONST.P_1_NAME, panCakeHouseMenu.getMenuItems()[0].GetName());
+    }
+
+    [TestMethod]
+    public void T_2_99_IsCost_Of_FirstMenu_In_PanCakeHouseMenu()
+    {
+      var panCakeHouseMenu = new PanCakeHouseMenu();
+      Assert.AreEqual(CONST.P_1_PRICE, panCakeHouseMenu.getMenuItems()[0].GetPrice());
+    }
+
+    [TestMethod]
+    public void FirstMenu_Is_Veg_In_PanCakeHouseMenu()
+    {
+      var panCakeHouseMenu = new PanCakeHouseMenu();
+      Assert.AreEqual(CONST.P_1_VEG, panCakeHouseMenu.getMenuItems()[0].IsVegetarian());
     }
 
     #endregion
