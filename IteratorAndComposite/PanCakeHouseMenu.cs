@@ -20,9 +20,9 @@ namespace IteratorAndComposite
       menuItems.Add(menuItem);
     }
 
-    public List<MenuItem> getMenuItems()
+    public Iterator createIterator()
     {
-      return menuItems;
+      return new PanCakeHouseIterator(menuItems);
     }
 
     // other menu methods here

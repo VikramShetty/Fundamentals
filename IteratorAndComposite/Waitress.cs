@@ -9,19 +9,12 @@ namespace IteratorAndComposite
     public string PrintMenu()
     {     
       PanCakeHouseMenu panCakeHouseMenu = new PanCakeHouseMenu();
-      List<MenuItem> breakfastItems = panCakeHouseMenu.getMenuItems();
+      Iterator panCakeHouseIterator = panCakeHouseMenu.createIterator();
 
       DinnerMenu dinerMenu = new DinnerMenu();
       Iterator dinnerIterator = dinerMenu.createIterator();
 
-      for (int i = 0; i < breakfastItems.Count; i++)
-      {
-        MenuItem menuItem = breakfastItems[i];
-        MenuPad.Append(menuItem.GetName() + " ");
-        MenuPad.Append(menuItem.GetPrice() + "\n");
-        MenuPad.Append(menuItem.GetDescription() + "\n");
-      }
-
+      PrintMenu(panCakeHouseIterator);
       return PrintMenu(dinnerIterator);
     }
 
