@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace IteratorAndComposite
@@ -15,7 +16,7 @@ namespace IteratorAndComposite
     public string PrintMenu()
     {     
       StringBuilder MenuPad = new StringBuilder();
-      Iterator panCakeHouseIterator = panCakeHouseMenu.createIterator();
+      IEnumerator panCakeHouseIterator = panCakeHouseMenu.createIterator();
       Iterator dinnerIterator = dinerMenu.createIterator();
 
       MenuPad.Append("MENU\n----\nBREAKFAST\n");
@@ -23,6 +24,19 @@ namespace IteratorAndComposite
       MenuPad.Append("\nLUNCH\n");
       MenuPad.Append(PrintMenu(dinnerIterator));
 
+      return MenuPad.ToString();
+    }
+
+    public string PrintMenu(IEnumerator enumerator)
+    {
+      StringBuilder MenuPad = new StringBuilder();
+      while (enumerator.MoveNext()) 
+      {
+        MenuItem menuItem = (MenuItem)enumerator.Current;
+        MenuPad.Append(menuItem.GetName() + ", ");
+        MenuPad.Append(menuItem.GetPrice() + " -- \n");
+        MenuPad.Append(menuItem.GetDescription() + "\n");
+      }     
       return MenuPad.ToString();
     }
 

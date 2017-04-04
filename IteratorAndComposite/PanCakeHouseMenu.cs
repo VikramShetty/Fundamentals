@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 
 namespace IteratorAndComposite
 {
@@ -20,9 +21,9 @@ namespace IteratorAndComposite
       menuItems.Add(menuItem);
     }
 
-    public Iterator createIterator()
+    public IEnumerator createIterator()
     {
-      return new PanCakeHouseIterator(menuItems);
+      return menuItems.GetEnumerator();
     }
 
     // other menu methods here

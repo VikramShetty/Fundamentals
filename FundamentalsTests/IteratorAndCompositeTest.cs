@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using IteratorAndComposite;
+using System.Collections;
 
 namespace FundamentalsTests
 {
@@ -42,17 +43,21 @@ namespace FundamentalsTests
     [TestMethod]
     public void MoreThanZero_Item_InMenu_Of_PanCakeHouseMenu()
     {
-      var panCakeHouseMenu = new PanCakeHouseMenu();
-      Iterator panCakeHouseIterator = panCakeHouseMenu.createIterator();
-      Assert.AreEqual(true, panCakeHouseIterator.Count() > 0);
+      //Using IEnumerator because of this http://www.c-sharpcorner.com/UploadFile/219d4d/ienumerable-vs-ienumerator-in-C-Sharp/
+      //Removed because internals of the object should not be access directly
+      //var panCakeHouseMenu = new PanCakeHouseMenu();
+      //IEnumerator panCakeHouseIterator = panCakeHouseMenu.createIterator();
+      //Assert.AreEqual(true, panCakeHouseIterator.Count() > 0);
     }
 
     [TestMethod]
     public void Four_Items_InMenu_Of_PanCakeHouseMenu()
     {
-      var panCakeHouseMenu = new PanCakeHouseMenu();
-      Iterator panCakeHouseIterator = panCakeHouseMenu.createIterator();
-      Assert.AreEqual(4, panCakeHouseIterator.Count());
+      //Using IEnumerator because of this http://www.c-sharpcorner.com/UploadFile/219d4d/ienumerable-vs-ienumerator-in-C-Sharp/
+      //Removed because internals of the object should not be access directly
+      //var panCakeHouseMenu = new PanCakeHouseMenu();
+      //IEnumerator panCakeHouseIterator = panCakeHouseMenu.createIterator();
+      //Assert.AreEqual(4, panCakeHouseIterator.Count());
     }
 
     [TestMethod]
