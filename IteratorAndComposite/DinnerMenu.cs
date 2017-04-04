@@ -32,9 +32,9 @@ namespace IteratorAndComposite
       }
     }
 
-    public MenuItem[] getMenuItems()
+    public Iterator createIterator()
     {
-      return menuItems;
+      return new DinnerMenuIterator(menuItems);
     }
 
     // other menu methods here

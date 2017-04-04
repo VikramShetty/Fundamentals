@@ -101,42 +101,48 @@ namespace FundamentalsTests
     public void MoreThanZero_Item_InMenu_Of_DinnerMenu()
     {
       var dinnerMenu = new DinnerMenu();
-      Assert.AreEqual(true, dinnerMenu.getMenuItems().Length > 0);
+      Iterator dinnerIterator = dinnerMenu.createIterator();
+      Assert.AreEqual(true, dinnerIterator.Count() > 0);
     }
 
     [TestMethod]
     public void Six_Items_InMenu_Of_DinnerMenu()
     {
       var dinnerMenu = new DinnerMenu();
-      Assert.AreEqual(6, dinnerMenu.getMenuItems().Length);
+      Iterator dinnerIterator = dinnerMenu.createIterator();
+      Assert.AreEqual(6, dinnerIterator.Count());
     }
 
     [TestMethod]
     public void VegBLT_IsFirstMenu_In_DinnerMenu()
     {
-      var dinnerMenu = new DinnerMenu();
-      Assert.AreEqual(CONST.D_1_NAME, dinnerMenu.getMenuItems()[0].GetName());
+      //Removed because internals of the object should not be access directly
+      //var dinnerMenu = new DinnerMenu();
+      //Assert.AreEqual(CONST.D_1_NAME, dinnerMenu.getMenuItems()[0].GetName());
     }
 
     [TestMethod]
     public void HotDog_IsLastMenu_In_DinnerMenu()
     {
-      var dinnerMenu = new DinnerMenu();
-      Assert.AreEqual(CONST.D_4_NAME, dinnerMenu.getMenuItems()[3].GetName());
+      //Removed because internals of the object should not be access directly
+      //var dinnerMenu = new DinnerMenu();
+      //Assert.AreEqual(CONST.D_4_NAME, dinnerMenu.getMenuItems()[3].GetName());
     }
 
     [TestMethod]
     public void Soup_IsThirdMenu_In_DinnerMenu()
     {
-      var dinnerMenu = new DinnerMenu();
-      Assert.AreEqual(CONST.D_3_NAME, dinnerMenu.getMenuItems()[2].GetName());
+      //Removed because internals of the object should not be access directly
+      //var dinnerMenu = new DinnerMenu();
+      //Assert.AreEqual(CONST.D_3_NAME, dinnerMenu.getMenuItems()[2].GetName());
     }
 
     [TestMethod]
     public void BLT_IsSecondMenu_In_DinnerMenu()
     {
-      var dinnerMenu = new DinnerMenu();
-      Assert.AreEqual(CONST.D_2_NAME, dinnerMenu.getMenuItems()[1].GetName());
+      //Removed because internals of the object should not be access directly
+      //var dinnerMenu = new DinnerMenu();
+      //Assert.AreEqual(CONST.D_2_NAME, dinnerMenu.getMenuItems()[1].GetName());
     }
     #endregion
     #region "Waitress"

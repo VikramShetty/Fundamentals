@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="CONST.cs" />
     <Compile Include="DinnerMenu.cs" />
+    <Compile Include="DinnerMenuIterator.cs" />
+    <Compile Include="Iterator.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="PanCakeHouseMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
