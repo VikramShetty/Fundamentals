@@ -161,14 +161,16 @@ namespace FundamentalsTests
       DinnerMenu dinnerMenu = new DinnerMenu();
       var waitress = new Waitress(panCakeHouseMenu, dinnerMenu);
       Assert.AreEqual(
-        CONST.P_1_NAME + " " + CONST.P_1_PRICE + "\n" + CONST.P_1_DESC  + "\n" +
-        CONST.P_2_NAME + " " + CONST.P_2_PRICE + "\n" + CONST.P_2_DESC  + "\n" +
-        CONST.P_3_NAME + " " + CONST.P_3_PRICE + "\n" + CONST.P_3_DESC  + "\n" +
-        CONST.P_4_NAME + " " + CONST.P_4_PRICE + "\n" + CONST.P_4_DESC  + "\n" +
-        CONST.D_1_NAME + " " + CONST.D_1_PRICE + "\n" + CONST.D_1_DESC  + "\n" +
-        CONST.D_2_NAME + " " + CONST.D_2_PRICE + "\n" + CONST.D_2_DESC  + "\n" +
-        CONST.D_3_NAME + " " + CONST.D_3_PRICE + "\n" + CONST.D_3_DESC  + "\n" +
-        CONST.D_4_NAME + " " + CONST.D_4_PRICE + "\n" + CONST.D_4_DESC  + "\n" 
+        "MENU\n----\nBREAKFAST\n" +
+        CONST.P_1_NAME + ", " + CONST.P_1_PRICE + " -- \n" + CONST.P_1_DESC + "\n" +
+        CONST.P_2_NAME + ", " + CONST.P_2_PRICE + " -- \n" + CONST.P_2_DESC + "\n" +
+        CONST.P_3_NAME + ", " + CONST.P_3_PRICE + " -- \n" + CONST.P_3_DESC + "\n" +
+        CONST.P_4_NAME + ", " + CONST.P_4_PRICE + " -- \n" + CONST.P_4_DESC + "\n" +
+        "\nLUNCH\n" + 
+        CONST.D_1_NAME + ", " + CONST.D_1_PRICE + " -- \n" + CONST.D_1_DESC + "\n" +
+        CONST.D_2_NAME + ", " + CONST.D_2_PRICE + " -- \n" + CONST.D_2_DESC + "\n" +
+        CONST.D_3_NAME + ", " + CONST.D_3_PRICE + " -- \n" + CONST.D_3_DESC + "\n" +
+        CONST.D_4_NAME + ", " + CONST.D_4_PRICE + " -- \n" + CONST.D_4_DESC + "\n" 
         , waitress.PrintMenu());
     }    
     #endregion

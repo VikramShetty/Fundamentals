@@ -18,7 +18,9 @@ namespace IteratorAndComposite
       Iterator panCakeHouseIterator = panCakeHouseMenu.createIterator();
       Iterator dinnerIterator = dinerMenu.createIterator();
 
+      MenuPad.Append("MENU\n----\nBREAKFAST\n");
       MenuPad.Append(PrintMenu(panCakeHouseIterator));
+      MenuPad.Append("\nLUNCH\n");
       MenuPad.Append(PrintMenu(dinnerIterator));
 
       return MenuPad.ToString();
@@ -29,8 +31,8 @@ namespace IteratorAndComposite
       StringBuilder MenuPad = new StringBuilder();
       while (iterator.hasNext()) {
         MenuItem menuItem = (MenuItem)iterator.next();
-        MenuPad.Append(menuItem.GetName() + " ");
-        MenuPad.Append(menuItem.GetPrice() + "\n");
+        MenuPad.Append(menuItem.GetName() + ", ");
+        MenuPad.Append(menuItem.GetPrice() + " -- \n");
         MenuPad.Append(menuItem.GetDescription() + "\n");
       }
       return MenuPad.ToString();
