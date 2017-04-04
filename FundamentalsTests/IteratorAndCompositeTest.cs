@@ -96,7 +96,6 @@ namespace FundamentalsTests
     }   
 
     #endregion
-
     #region "DinnerMenu"
     [TestMethod]
     public void MoreThanZero_Item_InMenu_Of_DinnerMenu()
@@ -139,6 +138,23 @@ namespace FundamentalsTests
       var dinnerMenu = new DinnerMenu();
       Assert.AreEqual(CONST.D_2_NAME, dinnerMenu.getMenuItems()[1].GetName());
     }
+    #endregion
+    #region "Waitress"
+    [TestMethod]
+    public void PrintMenu_By_Waitress()
+    {
+      var waitress = new Waitress();
+      Assert.AreEqual(
+        CONST.P_1_NAME + " " + CONST.P_1_PRICE + "\n" + CONST.P_1_DESC  + "\n" +
+        CONST.P_2_NAME + " " + CONST.P_2_PRICE + "\n" + CONST.P_2_DESC  + "\n" +
+        CONST.P_3_NAME + " " + CONST.P_3_PRICE + "\n" + CONST.P_3_DESC  + "\n" +
+        CONST.P_4_NAME + " " + CONST.P_4_PRICE + "\n" + CONST.P_4_DESC  + "\n" +
+        CONST.D_1_NAME + " " + CONST.D_1_PRICE + "\n" + CONST.D_1_DESC  + "\n" +
+        CONST.D_2_NAME + " " + CONST.D_2_PRICE + "\n" + CONST.D_2_DESC  + "\n" +
+        CONST.D_3_NAME + " " + CONST.D_3_PRICE + "\n" + CONST.D_3_DESC  + "\n" +
+        CONST.D_4_NAME + " " + CONST.D_4_PRICE + "\n" + CONST.D_4_DESC  + "\n" 
+        , waitress.PrintMenu());
+    }    
     #endregion
 
     private MenuItem FactorySingleMenuCreator()
