@@ -157,7 +157,9 @@ namespace FundamentalsTests
     [TestMethod]
     public void PrintMenu_By_Waitress()
     {
-      var waitress = new Waitress();
+      PanCakeHouseMenu panCakeHouseMenu = new PanCakeHouseMenu();
+      DinnerMenu dinnerMenu = new DinnerMenu();
+      var waitress = new Waitress(panCakeHouseMenu, dinnerMenu);
       Assert.AreEqual(
         CONST.P_1_NAME + " " + CONST.P_1_PRICE + "\n" + CONST.P_1_DESC  + "\n" +
         CONST.P_2_NAME + " " + CONST.P_2_PRICE + "\n" + CONST.P_2_DESC  + "\n" +

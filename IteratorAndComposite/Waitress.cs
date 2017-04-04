@@ -5,28 +5,34 @@ namespace IteratorAndComposite
 {
   public class Waitress
   {
-    StringBuilder MenuPad = new StringBuilder();
+    PanCakeHouseMenu panCakeHouseMenu;
+    DinnerMenu dinerMenu;
+    public Waitress(PanCakeHouseMenu panCakeHouseMenu, DinnerMenu dinerMenu)
+    {
+      this.panCakeHouseMenu = panCakeHouseMenu;
+      this.dinerMenu = dinerMenu;
+    }
     public string PrintMenu()
     {     
-      PanCakeHouseMenu panCakeHouseMenu = new PanCakeHouseMenu();
+      StringBuilder MenuPad = new StringBuilder();
       Iterator panCakeHouseIterator = panCakeHouseMenu.createIterator();
-
-      DinnerMenu dinerMenu = new DinnerMenu();
       Iterator dinnerIterator = dinerMenu.createIterator();
 
-      PrintMenu(panCakeHouseIterator);
-      return PrintMenu(dinnerIterator);
+      MenuPad.Append(PrintMenu(panCakeHouseIterator));
+      MenuPad.Append(PrintMenu(dinnerIterator));
+
+      return MenuPad.ToString();
     }
 
     public string PrintMenu(Iterator iterator)
     {
+      StringBuilder MenuPad = new StringBuilder();
       while (iterator.hasNext()) {
         MenuItem menuItem = (MenuItem)iterator.next();
         MenuPad.Append(menuItem.GetName() + " ");
         MenuPad.Append(menuItem.GetPrice() + "\n");
         MenuPad.Append(menuItem.GetDescription() + "\n");
       }
-
       return MenuPad.ToString();
     }
   }
