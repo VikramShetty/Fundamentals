@@ -55,5 +55,10 @@ namespace IteratorAndComposite
       }
       return output.ToString();
     }
+
+    public override IEnumerator createEnumerator()
+    {
+      return new CompositeEnumerator(menuComponents.GetEnumerator());
+    }
   }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace IteratorAndComposite
 {
@@ -40,6 +41,11 @@ namespace IteratorAndComposite
     }
 
     public virtual string Print()
+    {
+      throw new InvalidOperationException();
+    }
+
+    public virtual IEnumerator createEnumerator()
     {
       throw new InvalidOperationException();
     }

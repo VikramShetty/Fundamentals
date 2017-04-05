@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections;
+using System.Text;
 namespace IteratorAndComposite
 {
     public class MenuItem : MenuComponent
@@ -46,6 +47,11 @@ namespace IteratorAndComposite
         output.Append(", " + GetPrice());
         output.Append("\n    -- " + GetDescription());
         return output.ToString();
+      }
+
+      public override IEnumerator createEnumerator()
+      {
+        return new NullEnumerator();
       }
     }
 }
