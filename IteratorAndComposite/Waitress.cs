@@ -6,8 +6,8 @@ namespace IteratorAndComposite
 {
   public class Waitress
   {
-    List<Menu> menus;
-    public Waitress(List<Menu> menus)
+    List<IMenu> menus;
+    public Waitress(List<IMenu> menus)
     {
       this.menus = menus;
     }
@@ -17,7 +17,7 @@ namespace IteratorAndComposite
       IEnumerator menuEnumerator = menus.GetEnumerator();
       while (menuEnumerator.MoveNext())
       {
-        Menu menu = (Menu)menuEnumerator.Current;
+        IMenu menu = (IMenu)menuEnumerator.Current;
         MenuPad.Append(PrintMenu(menu.createEnumerator()));
       }
       return MenuPad.ToString();

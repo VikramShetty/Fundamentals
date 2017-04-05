@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IteratorAndComposite
 {
-  public class DinnerMenu : Menu
+  public class DinnerMenu : IMenu
   {
     MenuItem[] menuItems;
     private const int MAX_ITEMS = 6;

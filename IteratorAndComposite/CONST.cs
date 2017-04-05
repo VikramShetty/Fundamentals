@@ -68,5 +68,19 @@ namespace IteratorAndComposite
     public const double C_3_PRICE = 4.29;
     public const bool C_3_VEG = true;
     #endregion
+
+    #region "Menus"
+    public const string M_1_NAME = "PANCAKE HOUSE MENU";
+    public const string M_1_DESC = "Breakfast";
+  
+    public const string M_2_NAME = "DINER MENU";
+    public const string M_2_DESC = "Lunch";
+    
+    public const string M_3_NAME = "DESSERT MENU";
+    public const string M_3_DESC = "Dessert of course!";
+
+    public const string M_4_NAME = "CAFE MENU";
+    public const string M_4_DESC = "Dinner";
+    #endregion
   }
 }

@@ -1,6 +1,7 @@
-﻿namespace IteratorAndComposite
+﻿using System.Text;
+namespace IteratorAndComposite
 {
-    public class MenuItem
+    public class MenuItem : MenuComponent
     {
       private string Name;
       private string Description;
@@ -33,6 +34,18 @@
       public bool IsVegetarian()
       {
         return this.Vegetarian;
+      }
+
+      public string Print()
+      {
+        StringBuilder output = new StringBuilder();
+        output.Append(" " + GetName());
+        if (IsVegetarian())
+          output.Append("(v)");
+
+        output.Append(", " + GetPrice());
+        output.Append("\n    -- " + GetDescription());
+        return output.ToString();
       }
     }
 }

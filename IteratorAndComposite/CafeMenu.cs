@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IteratorAndComposite
 {
-  public class CafeMenu : Menu
+  public class CafeMenu : IMenu
   {
     Hashtable menuItems = new Hashtable();
     public CafeMenu()

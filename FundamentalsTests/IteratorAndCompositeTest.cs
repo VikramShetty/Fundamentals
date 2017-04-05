@@ -13,14 +13,14 @@ namespace FundamentalsTests
     [TestMethod]
     public void GetName_Returns_BLT_MenuItem()
     {
-      var menuItem = FactorySingleMenuCreator();
+      var menuItem = FactorySingleMenuItemCreator();
       Assert.AreEqual(CONST.D_2_NAME, menuItem.GetName());
     }
 
     [TestMethod]
     public void GetDescription_Return_FullText_MenuItem()
     {
-      var menuItem = FactorySingleMenuCreator();
+      var menuItem = FactorySingleMenuItemCreator();
       Assert.AreEqual(CONST.D_2_DESC,
         menuItem.GetDescription());
     }
@@ -28,15 +28,44 @@ namespace FundamentalsTests
     [TestMethod]
     public void GetPrice_Returns_2_99_MenuItem()
     {
-      var menuItem = FactorySingleMenuCreator();
+      var menuItem = FactorySingleMenuItemCreator();
       Assert.AreEqual(CONST.D_2_PRICE, menuItem.GetPrice());
     }
 
     [TestMethod]
     public void IsVegetarian_Returns_False_MenuItem()
     {
-      var menuItem = FactorySingleMenuCreator();
+      var menuItem = FactorySingleMenuItemCreator();
       Assert.AreEqual(CONST.D_2_VEG, menuItem.IsVegetarian());
+    }
+
+    [TestMethod]
+    public void print_MenuItem()
+    {
+      var menuItem = FactorySingleMenuItemCreator();
+      Assert.AreEqual(" " + CONST.D_2_NAME + ", " + CONST.D_2_PRICE + "\n    -- " + CONST.D_2_DESC, menuItem.Print());
+    }
+    #endregion
+    #region "Menu"
+    [TestMethod]
+    public void GetName_Returns_BLT_Menu()
+    {
+      var menu = FactorySingleMenuCreator();
+      Assert.AreEqual(CONST.M_1_NAME, menu.GetName());
+    }
+
+    [TestMethod]
+    public void GetDescription_Return_FullText_Menu()
+    {
+      var menu = FactorySingleMenuCreator();
+      Assert.AreEqual(CONST.M_1_DESC, menu.GetDescription());
+    }
+    
+    [TestMethod]
+    public void print_Menu()
+    {
+      var menu = FactorySingleMenuCreator();
+      Assert.AreEqual("\n" + CONST.M_1_NAME + "\n, " + CONST.M_1_DESC, menu.Print());
     }
     #endregion
     #region "PanCakeHouseMenu"
@@ -167,7 +196,7 @@ namespace FundamentalsTests
     [TestMethod]
     public void PrintMenu_By_Waitress()
     {
-      List<Menu> menus = new List<Menu>();
+      List<IMenu> menus = new List<IMenu>();
       menus.Add(new PanCakeHouseMenu());
       menus.Add(new DinnerMenu());
       menus.Add(new CafeMenu());
@@ -191,9 +220,14 @@ namespace FundamentalsTests
     }    
     #endregion
 
-    private MenuItem FactorySingleMenuCreator()
+    private MenuItem FactorySingleMenuItemCreator()
     {
       return new MenuItem(CONST.D_2_NAME, CONST.D_2_DESC, CONST.D_2_VEG, CONST.D_2_PRICE);
+    }
+
+    private Menu FactorySingleMenuCreator()
+    {
+      return new Menu(CONST.M_1_NAME, CONST.M_1_DESC);
     }
   }
 }
