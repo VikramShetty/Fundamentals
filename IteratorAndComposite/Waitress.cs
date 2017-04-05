@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-
-namespace IteratorAndComposite
+﻿namespace IteratorAndComposite
 {
   public class Waitress
   {
