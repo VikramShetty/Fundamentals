@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CafeMenu.cs" />
     <Compile Include="CONST.cs" />
     <Compile Include="DinnerMenu.cs" />
     <Compile Include="DinnerMenuEnumerator.cs" />
