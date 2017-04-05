@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace IteratorAndComposite
       this.Description = Description;
     }
 
-    public void add(MenuComponent menuComponent)
+    public override void add(MenuComponent menuComponent)
     {
       menuComponents.Add(menuComponent);
     }
@@ -28,7 +29,8 @@ namespace IteratorAndComposite
        menuComponents.Remove(menuComponent);
     }
 
-    public MenuComponent getChild(int i){
+    public MenuComponent getChild(int i)
+    {
       return (MenuComponent)menuComponents[i];
     }
 
@@ -42,10 +44,18 @@ namespace IteratorAndComposite
       return this.Description;
     }
 
-    public string Print() {
+    public override string Print()
+    {
       StringBuilder output = new StringBuilder();
       output.Append("\n" + GetName());
       output.Append("\n, " + GetDescription());
+      output.Append("\n" + CONST.LINE_SEPARATOR);
+      IEnumerator enumerator = menuComponents.GetEnumerator();
+      while (enumerator.MoveNext())
+      {
+        MenuComponent menuComponent = (MenuComponent)enumerator.Current;
+        output.Append(menuComponent.Print());
+      }
       return output.ToString();
     }
   }

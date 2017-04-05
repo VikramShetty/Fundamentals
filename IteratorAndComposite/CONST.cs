@@ -70,6 +70,9 @@ namespace IteratorAndComposite
     #endregion
 
     #region "Menus"
+    public const string M_0_NAME = "ALL MENUS";
+    public const string M_0_DESC = "All menus combined";
+
     public const string M_1_NAME = "PANCAKE HOUSE MENU";
     public const string M_1_DESC = "Breakfast";
   
@@ -82,5 +85,7 @@ namespace IteratorAndComposite
     public const string M_4_NAME = "CAFE MENU";
     public const string M_4_DESC = "Dinner";
     #endregion
+
+    public const string LINE_SEPARATOR = "------------------------";
   }
 }

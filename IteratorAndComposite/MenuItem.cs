@@ -36,10 +36,10 @@ namespace IteratorAndComposite
         return this.Vegetarian;
       }
 
-      public string Print()
+      public override string Print()
       {
         StringBuilder output = new StringBuilder();
-        output.Append(" " + GetName());
+        output.Append("\n " + GetName());
         if (IsVegetarian())
           output.Append("(v)");
 

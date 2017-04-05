@@ -43,7 +43,7 @@ namespace FundamentalsTests
     public void print_MenuItem()
     {
       var menuItem = FactorySingleMenuItemCreator();
-      Assert.AreEqual(" " + CONST.D_2_NAME + ", " + CONST.D_2_PRICE + "\n    -- " + CONST.D_2_DESC, menuItem.Print());
+      Assert.AreEqual("\n " + CONST.D_2_NAME + ", " + CONST.D_2_PRICE + "\n    -- " + CONST.D_2_DESC, menuItem.Print());
     }
     #endregion
     #region "Menu"
@@ -60,12 +60,35 @@ namespace FundamentalsTests
       var menu = FactorySingleMenuCreator();
       Assert.AreEqual(CONST.M_1_DESC, menu.GetDescription());
     }
-    
+
     [TestMethod]
     public void print_Menu()
     {
       var menu = FactorySingleMenuCreator();
-      Assert.AreEqual("\n" + CONST.M_1_NAME + "\n, " + CONST.M_1_DESC, menu.Print());
+      Assert.AreEqual("\n" + CONST.M_1_NAME + "\n, " + CONST.M_1_DESC +
+        "\n" + CONST.LINE_SEPARATOR, menu.Print());
+    }
+
+    [TestMethod]
+    public void print_PanCake_Menu()
+    {
+      MenuComponent pancakeHouseMenu = new Menu(CONST.M_1_NAME, CONST.M_1_DESC);
+      MenuComponent allMenus = new Menu(CONST.M_0_NAME, CONST.M_0_DESC);
+      allMenus.add(pancakeHouseMenu);
+
+      pancakeHouseMenu.add(new MenuItem(CONST.P_1_NAME, CONST.P_1_DESC, CONST.P_1_VEG, CONST.P_1_PRICE));
+      pancakeHouseMenu.add(new MenuItem(CONST.P_2_NAME, CONST.P_2_DESC, CONST.P_2_VEG, CONST.P_2_PRICE));
+      pancakeHouseMenu.add(new MenuItem(CONST.P_3_NAME, CONST.P_3_DESC, CONST.P_3_VEG, CONST.P_3_PRICE));
+      pancakeHouseMenu.add(new MenuItem(CONST.P_4_NAME, CONST.P_4_DESC, CONST.P_4_VEG, CONST.P_4_PRICE));
+
+      Assert.AreEqual("\n" + CONST.M_0_NAME + "\n, " + CONST.M_0_DESC +
+        "\n" + CONST.LINE_SEPARATOR +
+        "\n" + CONST.M_1_NAME + "\n, " + CONST.M_1_DESC +
+        "\n" + CONST.LINE_SEPARATOR + "\n" +  
+        " " + CONST.P_1_NAME + "(v), " + CONST.P_1_PRICE + "\n    -- " + CONST.P_1_DESC + "\n" +
+        " " + CONST.P_2_NAME + ", " + CONST.P_2_PRICE + "\n    -- " + CONST.P_2_DESC + "\n" +
+        " " + CONST.P_3_NAME + "(v), " + CONST.P_3_PRICE + "\n    -- " + CONST.P_3_DESC + "\n" +
+        " " + CONST.P_4_NAME + "(v), " + CONST.P_4_PRICE + "\n    -- " + CONST.P_4_DESC, allMenus.Print());
     }
     #endregion
     #region "PanCakeHouseMenu"
@@ -136,7 +159,7 @@ namespace FundamentalsTests
       //Removed because internals of the object should not be access directly
       //var panCakeHouseMenu = new PanCakeHouseMenu();
       //Assert.AreEqual(CONST.P_4_NAME, panCakeHouseMenu.getMenuItems()[3].GetName());
-    }   
+    }
 
     #endregion
     #region "DinnerMenu"
@@ -215,9 +238,9 @@ namespace FundamentalsTests
         // "\nDINNER\n" +
         CONST.C_1_NAME + ", " + CONST.C_1_PRICE + " -- \n" + CONST.C_1_DESC + "\n" +
         CONST.C_2_NAME + ", " + CONST.C_2_PRICE + " -- \n" + CONST.C_2_DESC + "\n" +
-        CONST.C_3_NAME + ", " + CONST.C_3_PRICE + " -- \n" + CONST.C_3_DESC + "\n" 
+        CONST.C_3_NAME + ", " + CONST.C_3_PRICE + " -- \n" + CONST.C_3_DESC + "\n"
         , waitress.PrintMenu());
-    }    
+    }
     #endregion
 
     private MenuItem FactorySingleMenuItemCreator()

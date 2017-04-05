@@ -8,7 +8,7 @@ namespace IteratorAndComposite
 {
   public abstract class MenuComponent
   {
-    public void add(MenuComponent menuComponent)
+    public virtual void add(MenuComponent menuComponent)
     {
       throw new InvalidOperationException();
     }
@@ -43,7 +43,7 @@ namespace IteratorAndComposite
       throw new InvalidOperationException();
     }
 
-    public string print()
+    public virtual string Print()
     {
       throw new InvalidOperationException();
     }
