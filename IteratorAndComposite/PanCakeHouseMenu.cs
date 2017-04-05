@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace IteratorAndComposite
 {
-  public class PanCakeHouseMenu
+  public class PanCakeHouseMenu : Menu
   {
     List<MenuItem> menuItems;
     public PanCakeHouseMenu()
@@ -21,7 +21,7 @@ namespace IteratorAndComposite
       menuItems.Add(menuItem);
     }
 
-    public IEnumerator createIterator()
+    public IEnumerator createEnumerator()
     {
       return menuItems.GetEnumerator();
     }

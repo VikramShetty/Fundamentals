@@ -6,9 +6,9 @@ namespace IteratorAndComposite
 {
   public class Waitress
   {
-    PanCakeHouseMenu panCakeHouseMenu;
-    DinnerMenu dinerMenu;
-    public Waitress(PanCakeHouseMenu panCakeHouseMenu, DinnerMenu dinerMenu)
+    Menu panCakeHouseMenu;
+    Menu dinerMenu;
+    public Waitress(Menu panCakeHouseMenu, Menu dinerMenu)
     {
       this.panCakeHouseMenu = panCakeHouseMenu;
       this.dinerMenu = dinerMenu;
@@ -16,14 +16,14 @@ namespace IteratorAndComposite
     public string PrintMenu()
     {     
       StringBuilder MenuPad = new StringBuilder();
-      IEnumerator panCakeHouseIterator = panCakeHouseMenu.createIterator();
-      Iterator dinnerIterator = dinerMenu.createIterator();
+      IEnumerator panCakeHouseEnumerator = panCakeHouseMenu.createEnumerator();
+      IEnumerator dinnerEnumerator = dinerMenu.createEnumerator();
 
       MenuPad.Append("MENU\n----\nBREAKFAST\n");
-      MenuPad.Append(PrintMenu(panCakeHouseIterator));
+      MenuPad.Append(PrintMenu(panCakeHouseEnumerator));
       MenuPad.Append("\nLUNCH\n");
-      MenuPad.Append(PrintMenu(dinnerIterator));
-
+      MenuPad.Append(PrintMenu(dinnerEnumerator));
+      
       return MenuPad.ToString();
     }
 
@@ -37,18 +37,6 @@ namespace IteratorAndComposite
         MenuPad.Append(menuItem.GetPrice() + " -- \n");
         MenuPad.Append(menuItem.GetDescription() + "\n");
       }     
-      return MenuPad.ToString();
-    }
-
-    public string PrintMenu(Iterator iterator)
-    {
-      StringBuilder MenuPad = new StringBuilder();
-      while (iterator.hasNext()) {
-        MenuItem menuItem = (MenuItem)iterator.next();
-        MenuPad.Append(menuItem.GetName() + ", ");
-        MenuPad.Append(menuItem.GetPrice() + " -- \n");
-        MenuPad.Append(menuItem.GetDescription() + "\n");
-      }
       return MenuPad.ToString();
     }
   }

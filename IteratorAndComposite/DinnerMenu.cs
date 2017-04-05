@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IteratorAndComposite
 {
-  public class DinnerMenu
+  public class DinnerMenu : Menu
   {
     MenuItem[] menuItems;
     private const int MAX_ITEMS = 6;
@@ -32,9 +33,9 @@ namespace IteratorAndComposite
       }
     }
 
-    public Iterator createIterator()
+    public IEnumerator createEnumerator()
     {
-      return new DinnerMenuIterator(menuItems);
+      return new DinnerMenuEnumerator(menuItems);
     }
 
     // other menu methods here

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace IteratorAndComposite
 {
-  public interface Iterator
+  public interface Menu
   {
-    bool hasNext();
-    Object next();
-    int Count();
+    IEnumerator createEnumerator();
   }
 }
