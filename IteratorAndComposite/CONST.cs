@@ -69,6 +69,23 @@ namespace IteratorAndComposite
     public const bool C_3_VEG = true;
     #endregion
 
+    #region "Dessert Menu"
+    public const string S_1_NAME = "Apple Pie";
+    public const string S_1_DESC = "Apple pie with a flakey crust, topped with vanilla icecream";
+    public const double S_1_PRICE = 1.59;
+    public const bool S_1_VEG = true;
+
+    public const string S_2_NAME = "Cheesecake";
+    public const string S_2_DESC = "Creamy New York cheesecake, with a chocolate graham crust";
+    public const double S_2_PRICE = 1.99;
+    public const bool S_2_VEG = true;
+
+    public const string S_3_NAME = "Sorbet";
+    public const string S_3_DESC = "A scoop of rasberry and a scoop of line";
+    public const double S_3_PRICE = 1.89;
+    public const bool S_3_VEG = true;
+    #endregion
+
     #region "Menus"
     public const string M_0_NAME = "ALL MENUS";
     public const string M_0_DESC = "All menus combined";
@@ -78,12 +95,12 @@ namespace IteratorAndComposite
   
     public const string M_2_NAME = "DINER MENU";
     public const string M_2_DESC = "Lunch";
-    
-    public const string M_3_NAME = "DESSERT MENU";
-    public const string M_3_DESC = "Dessert of course!";
 
-    public const string M_4_NAME = "CAFE MENU";
-    public const string M_4_DESC = "Dinner";
+    public const string M_3_NAME = "CAFE MENU";
+    public const string M_3_DESC = "Dinner";
+
+    public const string M_4_NAME = "DESSERT MENU";
+    public const string M_4_DESC = "Dessert of course!";
     #endregion
 
     public const string LINE_SEPARATOR = "------------------------";
