@@ -87,5 +87,7 @@ namespace IteratorAndComposite
     #endregion
 
     public const string LINE_SEPARATOR = "------------------------";
+    public const string IsVeg = "(v)";
+    public const string NtVeg = "";
   }
 }
