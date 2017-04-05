@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using IteratorAndComposite;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace FundamentalsTests
 {
@@ -166,22 +167,23 @@ namespace FundamentalsTests
     [TestMethod]
     public void PrintMenu_By_Waitress()
     {
-      PanCakeHouseMenu panCakeHouseMenu = new PanCakeHouseMenu();
-      DinnerMenu dinnerMenu = new DinnerMenu();
-      CafeMenu cafeMenu = new CafeMenu();
-      var waitress = new Waitress(panCakeHouseMenu, dinnerMenu, cafeMenu);
+      List<Menu> menus = new List<Menu>();
+      menus.Add(new PanCakeHouseMenu());
+      menus.Add(new DinnerMenu());
+      menus.Add(new CafeMenu());
+      var waitress = new Waitress(menus);
       Assert.AreEqual(
-        "MENU\n----\nBREAKFAST\n" +
+        // "MENU\n----\nBREAKFAST\n" +
         CONST.P_1_NAME + ", " + CONST.P_1_PRICE + " -- \n" + CONST.P_1_DESC + "\n" +
         CONST.P_2_NAME + ", " + CONST.P_2_PRICE + " -- \n" + CONST.P_2_DESC + "\n" +
         CONST.P_3_NAME + ", " + CONST.P_3_PRICE + " -- \n" + CONST.P_3_DESC + "\n" +
         CONST.P_4_NAME + ", " + CONST.P_4_PRICE + " -- \n" + CONST.P_4_DESC + "\n" +
-        "\nLUNCH\n" + 
+        // "\nLUNCH\n" + 
         CONST.D_1_NAME + ", " + CONST.D_1_PRICE + " -- \n" + CONST.D_1_DESC + "\n" +
         CONST.D_2_NAME + ", " + CONST.D_2_PRICE + " -- \n" + CONST.D_2_DESC + "\n" +
         CONST.D_3_NAME + ", " + CONST.D_3_PRICE + " -- \n" + CONST.D_3_DESC + "\n" +
         CONST.D_4_NAME + ", " + CONST.D_4_PRICE + " -- \n" + CONST.D_4_DESC + "\n" +
-         "\nDINNER\n" +
+        // "\nDINNER\n" +
         CONST.C_1_NAME + ", " + CONST.C_1_PRICE + " -- \n" + CONST.C_1_DESC + "\n" +
         CONST.C_2_NAME + ", " + CONST.C_2_PRICE + " -- \n" + CONST.C_2_DESC + "\n" +
         CONST.C_3_NAME + ", " + CONST.C_3_PRICE + " -- \n" + CONST.C_3_DESC + "\n" 
