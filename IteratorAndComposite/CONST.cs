@@ -51,5 +51,22 @@ namespace IteratorAndComposite
     public const double D_4_PRICE = 3.05;
     public const bool D_4_VEG = false;
     #endregion
+
+    #region "Cafe Menu"
+    public const string C_1_NAME = "Veggie Burger and Air Fries";
+    public const string C_1_DESC = "Veggie burger on a whole wheat bun, lettuce, tomato, and fries";
+    public const double C_1_PRICE = 3.99;
+    public const bool C_1_VEG = true;
+
+    public const string C_2_NAME = "Soup of the day";
+    public const string C_2_DESC = "A cup of the soup of the day, with a side salad";
+    public const double C_2_PRICE = 3.69;
+    public const bool C_2_VEG = false;
+
+    public const string C_3_NAME = "Burrito";
+    public const string C_3_DESC = "A large burrito, with whole pinto beans, salsa, guacamole";
+    public const double C_3_PRICE = 4.29;
+    public const bool C_3_VEG = true;
+    #endregion
   }
 }

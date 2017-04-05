@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace IteratorAndComposite
 {
-  public class CafeMenu
+  public class CafeMenu : Menu
   {
     Hashtable menuItems = new Hashtable();
     public CafeMenu()
     {
-      addItem("Veggie Burger and Air Fries", 
-        "Veggie burger on a whole wheat bun, lettuce, tomato, and fries",true, 3.99);
-      addItem("Soup of the day",
-        "A cup of the soup of the day, with a side salad", false, 3.69);
-      addItem("Burrito",
-        "A large burrito, with whole pinto beans, salsa, guacamole", true, 4.29);
+      addItem(CONST.C_1_NAME,CONST.C_1_DESC, CONST.C_1_VEG, CONST.C_1_PRICE);
+      addItem(CONST.C_2_NAME, CONST.C_2_DESC, CONST.C_2_VEG, CONST.C_2_PRICE);
+      addItem(CONST.C_3_NAME, CONST.C_3_DESC, CONST.C_3_VEG, CONST.C_3_PRICE);
     }
 
     public void addItem(string Name, string Description, bool Vegetarian, double price)
@@ -25,10 +22,10 @@ namespace IteratorAndComposite
       MenuItem menuItem = new MenuItem(Name, Description, Vegetarian, price);
       menuItems.Add(menuItem.GetName(), menuItem);
     }
-
-    public Hashtable getItems()
+    
+    public IEnumerator createEnumerator()
     {
-      return menuItems;
+      return menuItems.Values.GetEnumerator();
     }
   }
 }

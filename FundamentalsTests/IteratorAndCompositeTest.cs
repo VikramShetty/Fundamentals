@@ -168,7 +168,8 @@ namespace FundamentalsTests
     {
       PanCakeHouseMenu panCakeHouseMenu = new PanCakeHouseMenu();
       DinnerMenu dinnerMenu = new DinnerMenu();
-      var waitress = new Waitress(panCakeHouseMenu, dinnerMenu);
+      CafeMenu cafeMenu = new CafeMenu();
+      var waitress = new Waitress(panCakeHouseMenu, dinnerMenu, cafeMenu);
       Assert.AreEqual(
         "MENU\n----\nBREAKFAST\n" +
         CONST.P_1_NAME + ", " + CONST.P_1_PRICE + " -- \n" + CONST.P_1_DESC + "\n" +
@@ -179,7 +180,11 @@ namespace FundamentalsTests
         CONST.D_1_NAME + ", " + CONST.D_1_PRICE + " -- \n" + CONST.D_1_DESC + "\n" +
         CONST.D_2_NAME + ", " + CONST.D_2_PRICE + " -- \n" + CONST.D_2_DESC + "\n" +
         CONST.D_3_NAME + ", " + CONST.D_3_PRICE + " -- \n" + CONST.D_3_DESC + "\n" +
-        CONST.D_4_NAME + ", " + CONST.D_4_PRICE + " -- \n" + CONST.D_4_DESC + "\n" 
+        CONST.D_4_NAME + ", " + CONST.D_4_PRICE + " -- \n" + CONST.D_4_DESC + "\n" +
+         "\nDINNER\n" +
+        CONST.C_1_NAME + ", " + CONST.C_1_PRICE + " -- \n" + CONST.C_1_DESC + "\n" +
+        CONST.C_2_NAME + ", " + CONST.C_2_PRICE + " -- \n" + CONST.C_2_DESC + "\n" +
+        CONST.C_3_NAME + ", " + CONST.C_3_PRICE + " -- \n" + CONST.C_3_DESC + "\n" 
         , waitress.PrintMenu());
     }    
     #endregion
