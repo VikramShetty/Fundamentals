@@ -16,17 +16,17 @@ namespace IteratorAndComposite
     public object Current
     {
       get {
-        if (MoveNext())
-        {
+        //if (MoveNext())
+        //{
           IEnumerator enumerator = (IEnumerator)stack.Peek();
           MenuComponent component = (MenuComponent)enumerator.Current;
           if (component.GetType() == typeof(Menu))
             stack.Push(component.createEnumerator());
 
           return component;
-        }
-        else
-          return null;
+        //}
+        //else
+          //return null;
       }
     }
 
