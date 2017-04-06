@@ -32,7 +32,7 @@ namespace IteratorAndComposite
         return this.Price;
       }
 
-      public bool IsVegetarian()
+      public override bool IsVegetarian()
       {
         return this.Vegetarian;
       }

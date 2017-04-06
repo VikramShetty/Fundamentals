@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections;
 
 namespace IteratorAndComposite
 {
@@ -16,17 +12,12 @@ namespace IteratorAndComposite
     public object Current
     {
       get {
-        //if (MoveNext())
-        //{
           IEnumerator enumerator = (IEnumerator)stack.Peek();
           MenuComponent component = (MenuComponent)enumerator.Current;
           if (component.GetType() == typeof(Menu))
             stack.Push(component.createEnumerator());
 
           return component;
-        //}
-        //else
-          //return null;
       }
     }
 

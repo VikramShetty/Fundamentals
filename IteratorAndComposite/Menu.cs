@@ -6,6 +6,7 @@ namespace IteratorAndComposite
 {
   public class Menu : MenuComponent
   {
+    IEnumerator enumerator = null;
     List<MenuComponent> menuComponents = new List<MenuComponent>();
     string Name;
     string Description;
@@ -58,7 +59,12 @@ namespace IteratorAndComposite
 
     public override IEnumerator createEnumerator()
     {
-      return new CompositeEnumerator(menuComponents.GetEnumerator());
+      if (enumerator == null)
+      {
+        enumerator = new CompositeEnumerator(menuComponents.GetEnumerator());
+      }
+
+      return enumerator;
     }
   }
 }

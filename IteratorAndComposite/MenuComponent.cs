@@ -35,7 +35,7 @@ namespace IteratorAndComposite
       throw new InvalidOperationException();
     }
 
-    public bool IsVegetarian()
+    public virtual bool IsVegetarian()
     {
       throw new InvalidOperationException();
     }
