@@ -261,6 +261,44 @@ namespace FundamentalsTests
 
     #region "CompositeEnumerator"
     [TestMethod]
+    public void One_Iterator_CompositeEnumerator()
+    {
+      MenuComponent pancakeHouseMenu = new Menu(CONST.M_1_NAME, CONST.M_1_DESC);
+      pancakeHouseMenu.add(new MenuItem(CONST.P_1_NAME, CONST.P_1_DESC, CONST.P_1_VEG, CONST.P_1_PRICE));
+      Waitress waitress = new Waitress(pancakeHouseMenu);
+      Assert.AreEqual("\nVEG\n\n " +
+       CONST.P_1_NAME + CONST.IsVeg + ", " + CONST.P_1_PRICE + "\n    -- " + CONST.P_1_DESC 
+      , waitress.PrintVegetarianMenu());
+    }
+
+    [TestMethod]
+    public void TwoLevel_Iterator_CompositeEnumerator()
+    {
+      MenuComponent pancakeHouseMenu = new Menu(CONST.M_1_NAME, CONST.M_1_DESC);
+      MenuComponent allMenus = new Menu(CONST.M_0_NAME, CONST.M_0_DESC);
+      allMenus.add(pancakeHouseMenu);
+      pancakeHouseMenu.add(new MenuItem(CONST.P_1_NAME, CONST.P_1_DESC, CONST.P_1_VEG, CONST.P_1_PRICE));
+      Waitress waitress = new Waitress(pancakeHouseMenu);
+      Assert.AreEqual("\nVEG\n\n " +
+       CONST.P_1_NAME + CONST.IsVeg + ", " + CONST.P_1_PRICE + "\n    -- " + CONST.P_1_DESC
+      , waitress.PrintVegetarianMenu());
+    }
+
+    [TestMethod]
+    public void TwoLevel_PrintMenu()
+    {
+      MenuComponent pancakeHouseMenu = new Menu(CONST.M_1_NAME, CONST.M_1_DESC);
+      MenuComponent allMenus = new Menu(CONST.M_0_NAME, CONST.M_0_DESC);
+      allMenus.add(pancakeHouseMenu);
+      pancakeHouseMenu.add(new MenuItem(CONST.P_1_NAME, CONST.P_1_DESC, CONST.P_1_VEG, CONST.P_1_PRICE));
+      Waitress waitress = new Waitress(pancakeHouseMenu);
+      Assert.AreEqual("\n" + CONST.M_1_NAME + "\n, " + CONST.M_1_DESC +
+        "\n" + CONST.LINE_SEPARATOR + "\n " +      
+       CONST.P_1_NAME + CONST.IsVeg + ", " + CONST.P_1_PRICE + "\n    -- " + CONST.P_1_DESC
+      , waitress.PrintMenu());
+    }
+
+    [TestMethod]
     public void PanCake_Iterator_CompositeEnumerator()
     {
       var menuOutput = "";

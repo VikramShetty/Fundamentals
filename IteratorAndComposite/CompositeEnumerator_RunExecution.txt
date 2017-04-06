@@ -1,0 +1,44 @@
+﻿Only one menu <example> One_Iterator_CompositeEnumerator
+MenuComponent pancakeHouseMenu = new Menu(CONST.M_1_NAME, CONST.M_1_DESC);
+pancakeHouseMenu.add(new MenuItem(CONST.P_1_NAME, CONST.P_1_DESC, CONST.P_1_VEG, CONST.P_1_PRICE));
+Waitress waitress = new Waitress(pancakeHouseMenu);
+------------------------------------------------------
+Waitress --> public string PrintVegetarianMenu()
+Waitress --> IEnumerator enumerator = allMenus.createEnumerator();
+Waitress --> while (enumerator.MoveNext()
+Composite --> public bool MoveNext()
+Composite --> return true;
+Waitress --> MenuComponent menuComponent = (MenuComponent)enumerator.Current; 
+Composite --> return MenuItem <Pancake>   
+Waitress --> if (menuComponent.IsVegetarian())
+Waitress --> menuOutput.Append(menuComponent.Print());
+Composite --> public bool MoveNext()
+Composite --> if (!enumerator.MoveNext())
+Composite --> stack.Pop();
+Composite --> return MoveNext(); {Recurssive}
+Composite --> return false;
+Waitress --> return menuOutput.ToString();
+Waitress --> "K&B's Pancake Breakfast(v), 2.99    -- Pancakes with scrambled eggs, and toast"
+####################################################################################################3
+TwoLevel_Iterator_CompositeEnumerator
+MenuComponent pancakeHouseMenu = new Menu(CONST.M_1_NAME, CONST.M_1_DESC);
+MenuComponent allMenus = new Menu(CONST.M_0_NAME, CONST.M_0_DESC);
+allMenus.add(pancakeHouseMenu);
+pancakeHouseMenu.add(new MenuItem(CONST.P_1_NAME, CONST.P_1_DESC, CONST.P_1_VEG, CONST.P_1_PRICE));
+----------------------------------------------
+Waitress --> public string PrintVegetarianMenu()
+Waitress --> IEnumerator enumerator = allMenus.createEnumerator();
+Waitress --> while (enumerator.MoveNext()
+Composite --> public bool MoveNext()
+Composite --> return true;
+Waitress --> MenuComponent menuComponent = (MenuComponent)enumerator.Current; 
+Composite --> return MenuItem <Pancake>
+Waitress --> if (menuComponent.IsVegetarian())
+Waitress --> menuOutput.Append(menuComponent.Print());
+Waitress --> while (enumerator.MoveNext())
+Composite --> public bool MoveNext()
+Composite --> if (!enumerator.MoveNext())
+Composite --> stack.Pop();
+Composite --> return MoveNext(); {Recurssive}
+Composite --> return false;
+Waitress --> return menuOutput.ToString();
