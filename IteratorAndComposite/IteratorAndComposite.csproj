@@ -39,9 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompositeDataEnumerator.cs" />
     <Compile Include="CompositeEnumerator.cs" />
     <Compile Include="CONST.cs" />
+    <Compile Include="DataNode.cs" />
+    <Compile Include="DataPoint.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="DataComponent.cs" />
     <Compile Include="MenuComponent.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="NullEnumerator.cs" />

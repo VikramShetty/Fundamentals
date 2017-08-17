@@ -59,6 +59,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CoffeMakerInMemory.cs" />
+    <Compile Include="DiversityIntelligenceTests.cs" />
     <Compile Include="MessageStoreTest.cs" />
     <Compile Include="IteratorAndCompositeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
